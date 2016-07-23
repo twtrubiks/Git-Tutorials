@@ -248,12 +248,12 @@ git branch -D dev
 
 ## 解決衝突
 
-在進行合併的時候，有時候會顯示出 <b>衝突conflicts<b>，這時候就必須手動解決衝突後再送出。
+在進行合併的時候，有時候會顯示出 <b>衝突conflicts</b>，這時候就必須手動解決衝突後再送出。
 
 通常我目前最容易遇到衝突conflicts，就是使用pull這個指令的時候
 
 ![alt tag](http://i.imgur.com/Eph0Vw1.jpg)<br>
-仔細看這張圖，如果使用<b>pull<b>這個指令，會幫你<b>自動merge<b> (如圖裡的Auto-merging Hello.py)，
+仔細看這張圖，如果使用<b>pull</b>這個指令，會幫你<b>自動merge</b> (如圖裡的Auto-merging Hello.py)，
 
 然後接著看 CONFLICT (content): Merge conflict in Hello.py ，又說 Automatic merge failed，
 
