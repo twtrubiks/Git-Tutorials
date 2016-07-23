@@ -104,14 +104,14 @@ git push
 ```
 git log
 ```
-按<b>小寫q<b>可退出<br>
+按<b>小寫q</b>可退出<br>
 ![alt tag](http://i.imgur.com/j11afCP.jpg)
 
 如果覺得版面太雜，可以使用下列指令
 ```
 git log --pretty=oneline
 ```
-按<b>小寫q<b>可退出<br>
+按<b>小寫q</b>可退出<br>
 ![alt tag](http://i.imgur.com/jz2cwUA.jpg)
 
 
