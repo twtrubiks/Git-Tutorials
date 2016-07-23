@@ -277,14 +277,16 @@ git commit -m "conflict fixed"
 ## git其他設定
 我們已經設定了user.name以及user.email，但Git上其實還有很多可設定的東西
 
-有時候，我們必須把某些檔案(文件夾)放到Git工作目錄中，但又不能提交它們，像是密碼設定或是編譯器IDE產生出來的東西之類的，<br>
+有時候，我們必須把某些檔案(文件夾)放到Git工作目錄中，但又不能提交它們，<br>
+像是密碼設定或是編譯器IDE產生出來的東西之類的，<br>
 每次git status都會看到紅紅的Untracked files，通常會覺得有點煩......
 
-這問題Git也幫我們想過，只要在Git工作區的根目錄下新建一個特殊的<b>.gitignore</b>文件，然後把要忽略的文件(檔案)名稱輸入進去，Git就會自動忽略這些文件。
+這問題Git也幫我們想過，只要在Git工作區的根目錄下新建一個特殊的<b>.gitignore</b>文件，<br>
+然後把要忽略的文件(檔案)名稱輸入進去，Git就會自動忽略這些文件。
 
 當然不需要自己從頭寫.gitignore文件，GitHub已經幫我們準備了一些文件[gitignore](https://github.com/github/gitignore)
 <br><br>
-<b>.gitignore<b>檔案直接放在目錄底下即可
+<b>.gitignore</b>檔案直接放在目錄底下即可
 <br>
 ![alt tag](http://i.imgur.com/8rHPsII.jpg)
 <br>
