@@ -7,7 +7,7 @@
 
 影片教學包含如何產生<b>SSH key</b>
 
-如果步驟正確且沒出錯誤，可以路徑下找到<b>.ssh資料夾</b>，裡面有<b>id_rsa</b>以及<b>id_rsa.pub</b>兩個檔案，
+如果步驟正確且沒出錯誤，可以在路徑下找到<b>.ssh資料夾</b>，裡面有<b>id_rsa</b>以及<b>id_rsa.pub</b>兩個檔案，
 
 這兩個就是SSH Key，<b>id_rsa是私鑰</b>，不能洩露出去，<b>id_rsa.pub是公鑰</b>，可以很放心的告訴任何人。
 
@@ -166,11 +166,10 @@ git checkout -- file 可以丟棄工作區的修改：
 ```
 git checkout  -- hello.py
 ```
-命令git checkout -- hello.py意思就是，
+命令git checkout -- hello.py意思就是，把hello.py文件在工作區的修改全部撤銷(丟棄)，<br>
+讓這個檔案回到最近一次git commit或git add時的狀態。<br>
 
-![alt tag](http://i.imgur.com/Moua6Ho.jpg)
-
-把hello.py文件在工作區的修改全部撤銷(丟棄)，讓這個檔案回到最近一次git commit或git add時的狀態。
+![alt tag](http://i.imgur.com/SrCo4kH.jpg)
 
 當然也可以用git reset指令直接回到某個commit。
 ```
