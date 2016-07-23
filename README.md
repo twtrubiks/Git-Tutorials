@@ -1,13 +1,13 @@
 # Git-Tutorials 基本使用教學:memo:
-因為小弟覺得這東西蠻有趣的，所以就簡單寫個教學文，順便記錄一下:memo:
+因為小弟覺得這東西蠻有趣的，所以就簡單寫個教學文，順便記錄一下:memo:，希望能幫助想學的人:smile:
 
-如果教學有誤再請糾正，很多也是參考網路上的教學文，在這裡簡單整理一下，希望能幫助想學的人:smile:
+如果教學有誤再請糾正:sweat_smile:
 
 基本使用指令以及安裝可參考小弟之前拍的影片[github基本教學 - 從無到有](https://www.youtube.com/watch?v=py3n6gF5Y00)
 
 影片教學包含如何產生<b>SSH key</b>
 
-如果步驟正確且沒出錯誤，可以路徑下找到<b>.ssh資料夾</b>，裡面有<b>id_rsa</b>以及<b>id_rsa.pub/<b>兩個檔案，
+如果步驟正確且沒出錯誤，可以路徑下找到<b>.ssh資料夾</b>，裡面有<b>id_rsa</b>以及<b>id_rsa.pub</b>兩個檔案，
 
 這兩個就是SSH Key，<b>id_rsa是私鑰</b>，不能洩露出去，<b>id_rsa.pub是公鑰</b>，可以很放心的告訴任何人。
 
@@ -111,7 +111,7 @@ git log
 ```
 git log --pretty=oneline
 ```
-按按<b>小寫q<b>可退出<br>
+按<b>小寫q<b>可退出<br>
 ![alt tag](http://i.imgur.com/jz2cwUA.jpg)
 
 
@@ -150,14 +150,15 @@ git reset --hard ad41df36b7
 git reflog
 ```
 ![alt tag](http://i.imgur.com/MaRlZZr.jpg)
-
+接著看你要回到哪個版本，再使用git reset即可。
+```
 git reset --hard 642e7af
-
+```
 有時候想消除(覆蓋)已經push出去的commit，這時候我們可以使用
 ```
 git push --force 
 ```
-可以強制push，先回到某個版本，然後再強制push。
+可以強制push。先回到某個版本，然後再強制push。
 
 ## checkout
 
@@ -172,26 +173,30 @@ git checkout  -- hello.py
 把hello.py文件在工作區的修改全部撤銷(丟棄)，讓這個檔案回到最近一次git commit或git add時的狀態。
 
 當然也可以用git reset指令直接回到某個commit。
+```
 git reset --hard xxxxxx
+```
 ```
 git reset --hard 201f40604ec3b6fa8
 ```
 
 ## 刪除
 
-現在你有兩個選擇，一是確實要從版本庫中刪除該文件，那就用命令git rm刪掉，並且git commit：
-
+有兩種況狀，一種是確定要從版本庫中刪除該檔案，那就用命令git rm刪掉，並且git commit：
+```
+rm hello.py
 git rm hello.py
 git commit -m "remove hello.py"
+```
+![alt tag](http://i.imgur.com/sLMTDX7.jpg)
 
-![alt tag](http://i.imgur.com/zhY0I9t.jpg)
-
-另一種情況是刪錯了，因為版本庫裡還有呢，所以可以很輕鬆地把誤刪的文件恢復到最新版本：
-
-git rm hello.py
+另一種況狀是刪錯了，使用git checkout可以輕鬆還原檔案:
+```
+rm hello.py
 git checkout -- hello.py
+```
 
-![alt tag](http://i.imgur.com/Moua6Ho.jpg)
+![alt tag](http://i.imgur.com/5X2NcfS.jpg)
 ## 新建與合併分支 branch
 
 使用git branch指令查看目前的分支：
@@ -207,7 +212,7 @@ git branch bug1
 git checkout bug1
 ```
 git branch bug1 為創造一個名稱為bug1的分支，<br>
-git checkout bug1為切換到一個名稱為bug1的分支底下。
+git checkout bug1為切換到一個名稱為bug1的分支底下。<br>
 ![alt tag](http://i.imgur.com/JtGBHk4.jpg)
 
 以上兩行指令，相當於下列一行指令
