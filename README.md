@@ -87,10 +87,48 @@ git commit -m "文字"
 ```
 git commit -m "add Hello.py"
 ```
-再使用git status，你會發現工作區變乾淨了。如下圖<br>
-
+再使用git status，你會發現工作區變乾淨了。如下圖<br><br>
 ![alt tag](http://i.imgur.com/6VrieNb.jpg)
-
+<br><br>
+補充，如果只有輸入
+```
+git commit 
+```
+![alt tag](http://i.imgur.com/yZxKGTU.jpg)<br><br>
+這時會跳出編輯視窗<br><br>
+![alt tag](http://i.imgur.com/htNQ0dJ.jpg)<br><br>
+這時可以按鍵盤的<b>Ins鍵</b>(或按鍵盤上的<b>英文字 i </b>)即可輸入文字<br><br>
+![alt tag](http://i.imgur.com/NFy16dp.jpg)<br><br>
+輸入完先按<b>Esc鍵</b>，按完後底下的INSERT會消失，接著直接打 <b>:wq</b> ，再按enter就會儲存並離開了。
+<br><br>
+<b>如何修改最後一次的commit呢?</b><br>
+有時候我們commit完之後，才發現自己的commit內容手殘打錯了<br>
+這時候可以使用如下指令，他會跳出編輯視窗給你編輯你上一次的commit內容。
+```
+git commit --amend
+```
+又或是我們commit完之後，才發現自己漏了幾個檔案沒有add進去<br>
+這時候可以使用如下指令
+```
+git commit -m "init commit"
+git add missing_file.py
+git commit --amend
+```
+如上狀況為當我 git commit -m "init commit" 之後，我發現我漏掉了<b>missing_file.py</b>這個檔案(commit前忘記add進去)，<br>
+這時候就可以用這樣的指令來修正剛剛的錯誤。<br><br>
+有時候我們會為了方便，直接使用下面的指令一次加入全部的檔案
+```
+git add .
+```
+但是加完後發現其實有些檔案室不需要add進入的，這時候就可以使用如下指令去取消add
+```
+git reset HEAD <file>
+```
+<br>
+範例，路徑下有A.py以及B.py這兩個檔案，然後我使用<b> git add . </b>加入，
+![alt tag](http://i.imgur.com/0S7TcEB.jpg)<br><br>
+但加入完我發現其實B.py我還沒有要add進入，所以我這時候就可以使用<b> git reset HEAD B.py  </b>去還原。 <br>
+![alt tag](http://i.imgur.com/3iAyEEx.jpg)<br>
 
 ## git push 指令
 ```
