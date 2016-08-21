@@ -312,6 +312,65 @@ git add Hello.py
 git commit -m "conflict fixed"
 ```
 
+## stash 指令
+很多時候，我們正在開發一個新功能又或是debug，然後突然有一個功能需要緊急修正，但你又不想commit現在
+的狀況，因為根本沒意義，事情只做了一半，這時候<b> stash </b>這個實用的指令就派上用場了。
+<br><br>
+舉個例子，假設我們改了A.py和B.py這兩個檔案 <br>
+![alt tag](http://i.imgur.com/7xX0T1T.jpg)
+<br>
+然後，現在突然有一個bug必須馬上(立刻)處理，但是，啊我手上的事情還沒做完阿~~~~
+這時候，可以利用以下指令
+```
+git stash
+```
+![alt tag](http://i.imgur.com/cYCH8mV.jpg)
+<br><br>
+假如你想要更清楚自己這次的stash原因是什麼，或是這是正在開發什麼功能
+可以使用以下指令
+```
+git stash save -u "我是註解"
+```
+```
+git stash save -u "feature"
+```
+![alt tag](http://i.imgur.com/nGS11Px.jpg)
+<br>
+接下來你可以使用status指令，你會發現變乾淨了
+<br>
+![alt tag](http://i.imgur.com/Xf53GfM.jpg)
+<br>
+並且可以使用下列的指令來觀看stash裡面的東西
+```
+git stash list
+```
+![alt tag](http://i.imgur.com/jQPiYiX.jpg)
+<br>
+然後你很努力地解決這個bug，commit完之後，
+可以再使用下列的指令把stash取回來，這指令取回後也會刪除stash
+```
+git stash pop
+```
+![alt tag](http://i.imgur.com/zVF7no2.jpg)
+<br>
+你會發現剛剛的東西回來了~
+
+如果你希望使用stash取回之後，不希望刪除stash，可以使用下列的指令
+```
+git stash apply
+```
+如下圖，你可以發現取回後，stash並沒有被刪除
+<br>
+![alt tag](http://i.imgur.com/w3Ip3iW.jpg)
+<br>
+如果你只是想要刪除暫存，可以使用下列的指令
+```
+git stash clear
+```
+從下圖可以發現，stash裡面的東西被我們刪除了
+<br>
+![alt tag](http://i.imgur.com/PvzufbQ.jpg)
+
 ## git其他設定
 我們已經設定了user.name以及user.email，但Git上其實還有很多可設定的東西
 
