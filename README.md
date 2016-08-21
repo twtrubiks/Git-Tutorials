@@ -312,7 +312,7 @@ git add Hello.py
 git commit -m "conflict fixed"
 ```
 
-## stash 指令
+## git stash 指令
 很多時候，我們正在開發一個新功能又或是debug，然後突然有一個功能需要緊急修正，但你又不想commit現在
 的狀況，因為根本沒意義，事情只做了一半，這時候<b> stash </b>這個實用的指令就派上用場了。
 <br><br>
@@ -320,6 +320,7 @@ git commit -m "conflict fixed"
 ![alt tag](http://i.imgur.com/7xX0T1T.jpg)
 <br>
 然後，現在突然有一個bug必須馬上(立刻)處理，但是，啊我手上的事情還沒做完阿~~~~
+<br>
 這時候，可以利用以下指令
 ```
 git stash
@@ -362,7 +363,7 @@ git stash apply
 如下圖，你可以發現取回後，stash並沒有被刪除
 <br>
 ![alt tag](http://i.imgur.com/w3Ip3iW.jpg)
-<br>
+<br><br>
 如果你只是想要刪除暫存，可以使用下列的指令
 ```
 git stash clear
