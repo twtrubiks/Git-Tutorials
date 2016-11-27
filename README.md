@@ -283,6 +283,40 @@ git branch -D dev
 ```
 從遠程抓取分支，使用git pull，如果有衝突，要先處理衝突
 
+## 新建分支 branch 並 push
+相信大家有時候在github上面都會看到，如下圖，很多分支
+
+![alt tag](http://i.imgur.com/wrIdlzS.jpg)
+
+那我們要如何建立分支呢? 首先，我們先看下面這張圖
+
+![alt tag](http://i.imgur.com/3U092a1.jpg)
+
+有一個v1的分支，並且我在分支上增加一個 g.py 並且 commit。
+
+接下來要<b>第一次 </b> git push 的時候， 你會發現有錯誤提示
+
+請使用以下指令才是正確的
+
+```
+git push --set-upstream origin v1
+```
+![alt tag](http://i.imgur.com/1fuS2VY.jpg)
+
+接下來你可以到網頁上看(這裡用 bitbucket 當作範例)，你會發現有分支 v1 了
+
+![alt tag](http://i.imgur.com/lOtzsk8.jpg)
+
+如果是第一次使用 git clone ，你會發現你沒有分支(他只會 clone master下來)，可以使用下面指令 clone 你的分支，
+
+假設我有一個 v1 分支，
+```
+git pull origin 分支名稱v1
+```
+```
+git pull origin v1
+```
+這樣就能將分支clone下來。
 
 ## 解決衝突
 
