@@ -318,6 +318,92 @@ git pull origin v1
 ```
 這樣就能將分支clone下來。
 
+## git rebase
+
+什麼是 rebase 呢 ? git rebase 就是避免多餘(沒有意義)的 merge !!! 先看看下面兩張圖
+
+補充 : ck = checkout  br = branch   st = status  cm = commit ，可以自行設定。
+
+圖一
+
+![alt tag](http://i.imgur.com/mWY0f2J.png)
+
+圖二
+
+![alt tag](http://i.imgur.com/QVZc5P5.png)
+
+圖一 和 圖二 你喜歡看哪種圖 ?  答案很明顯，是 圖一 !!
+
+<b> rebase </b>的目的主要就是盡量讓圖都像 圖一
+
+用講的大家一定霧煞煞，所以我直接實戰給大家看。
+
+先示範 <b>沒有使用 rebase</b> 的範例
+
+目前分支
+
+![alt tag](http://i.imgur.com/E0ahfnD.png)
+
+![alt tag](http://i.imgur.com/Lb4dB0V.png)
+
+以上說明 : 先建立 v1 branch，接著 add 後再 commit。
+
+
+假設現在又有人 push 了，以下模擬 pull ，自己加上一個 commit 
+
+![alt tag](http://i.imgur.com/hFKX4yJ.png)
+
+以上說明 : 自己在 master 分支上加 t2.txt ， 並且commit ( 模擬 pull )
+
+接下來，切換到 master 分支下和 v1 branch 分支 合併，並且 push
+
+![alt tag](http://i.imgur.com/0sCH2Q1.png)
+
+你會發現，顯示出來的圖並不漂亮，如下圖
+
+![alt tag](http://i.imgur.com/zbIPdyb.png)
+
+
+示範 <b>使用 rebase</b> 的範例
+
+前面的部份基本上一樣
+
+![alt tag](http://i.imgur.com/E0ahfnD.png)
+
+![alt tag](http://i.imgur.com/Lb4dB0V.png)
+
+以上說明 : 先建立 v1 branch，接著 add 後再 commit。
+
+
+假設現在又有人 push 了，以下模擬 pull ，自己加上一個 commit 
+
+![alt tag](http://i.imgur.com/hFKX4yJ.png)
+
+以上說明 : 自己在 master 分支上加 t2.txt ， 並且 commit ( 模擬 pull )
+
+<b>差異的部份</b>
+
+![alt tag](http://i.imgur.com/45ZXGiK.png)
+
+以上說明 : 先切換到 v1 分支，然後使用以下指令
+
+```
+git rebase master
+```
+![alt tag](http://i.imgur.com/Lpd9Kjr.png)
+
+以上說明 : 再切回 master 分支，並且使用 merge 合併 v1 分支，最後在 push
+
+你看~  是不是變的整齊又漂亮多了呢?
+
+![alt tag](http://i.imgur.com/1jBI7pw.png)
+
+git rebase  就是將 master 的最新 commit 接回來，再補上自己分支的 commit。
+
+以上就是 git rebase  的介紹。
+
+
+
 ## 解決衝突
 
 在進行合併的時候，有時候會顯示出 <b>衝突conflicts</b>，這時候就必須手動解決衝突後再送出。
