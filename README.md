@@ -574,3 +574,47 @@ git config --global alias.cm commit
 ![alt tag](http://i.imgur.com/iXjIqv9.jpg)
 
 
+## 使用 Git 一次 Push 到多個不同的遠端 ( remote )
+
+假如有一天 github 掛了，這樣是不是就不能work了，你可能會說本地端還有 ?
+
+但......多備份絕對是好事 !!  再這裡介紹如何一次 Push 到多個不同的遠端 ( remote )
+
+這裡用 [ Bitbucket ](https://bitbucket.org/product) 當作範例
+
+先使用下方指令查看
+```
+git remote -v
+```
+![alt tag](http://i.imgur.com/Qb5VHoP.png)
+
+接著我們使用下列指令新增一個 origin 的遠端
+```
+git remote set-url --add origin <url>
+```
+```
+git remote set-url --add origin git@github.com:twtrubiks/test2.git
+```
+![alt tag](http://i.imgur.com/FKzexVE.png)
+
+我們再用 git remote -v 查看一次，你會發現多了剛剛新增的遠端 ( remote )
+
+![alt tag](http://i.imgur.com/p1q7C4b.png)
+
+最後我們再 push
+
+![alt tag](http://i.imgur.com/6VKh8Bz.png)
+
+仔細看，是不是一次 push 到多個不同的遠端 ( remote )，非常方便!!
+
+<b>GitHub</b>
+
+![alt tag](http://i.imgur.com/JljPJHJ.png)
+
+<b>Bitbucket</b>
+
+![alt tag](http://i.imgur.com/rkYHNl4.png)
+
+P.S 設定檔在資料夾底下的隱藏檔 ".git" 底下，裡面有一個 config
+
+![alt tag](http://i.imgur.com/41xb8eu.png)
