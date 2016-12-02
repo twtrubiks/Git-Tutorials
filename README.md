@@ -234,7 +234,14 @@ git checkout -- hello.py
 ```
 
 ![alt tag](http://i.imgur.com/5X2NcfS.jpg)
+
 ## 新建與合併分支 branch
+
+再說明 分支 branch 之前，先給大家一個觀念。
+
+通常再開發的時候，大家都是從 <b> master </b> 做一個 分支 branch 出去，最後再 <b> merge </b> 回 master，
+
+為什麼要這麼做呢 ?  因為要確保大家都是使用最新的 <b> master </b>
 
 使用git branch指令查看目前的分支：
 ```
@@ -284,6 +291,7 @@ git branch -D dev
 從遠程抓取分支，使用git pull，如果有衝突，要先處理衝突
 
 ## 新建分支 branch 並 push
+
 相信大家有時候在github上面都會看到，如下圖，很多分支
 
 ![alt tag](http://i.imgur.com/wrIdlzS.jpg)
@@ -316,11 +324,35 @@ git pull origin 分支名稱v1
 ```
 git pull origin v1
 ```
-這樣就能將分支clone下來。
+這樣就能將分支clone下來。CCCC
+
+## git pull
+
+通常在開始工作或要 push 之前，我們都會先使用 git pull 這道指令
+
+```
+git pull
+```
+
+## git fetch
+
+可以先簡單想成 <b> git pull = git fetch + git merge </b>
+
+我們先來看下面這張圖，  <b>git fetch + git merge </b>
+
+![alt tag](http://i.imgur.com/COuWByw.png)
+
+再看這張圖  </b> git pull </b>
+
+![alt tag](http://i.imgur.com/8FGuA75.png)
+
+這樣是不是清楚多了!!!
+　
 
 ## git rebase
 
-什麼是 rebase 呢 ? git rebase 就是避免多餘(沒有意義)的 merge !!! 先看看下面兩張圖
+
+什麼是 rebase 呢 ? git rebase 就是避免多餘 ( 沒有意義 ) 的 merge !!! 先看看下面兩張圖
 
 補充 : ck = checkout  br = branch   st = status  cm = commit ，可以自行設定。
 
