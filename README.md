@@ -701,7 +701,8 @@ git stash clear
 
 ![alt tag](http://i.imgur.com/8rHPsII.jpg)
 
-**.gitignore 檔案格式範例**
+### .gitignore 檔案格式範例
+
 ![alt tag](http://i.imgur.com/W3cxk9r.jpg)
 
 有時候常常手殘 key 錯指令或是記不起來
@@ -777,10 +778,12 @@ git remote set-url --add origin git@github.com:twtrubiks/test2.git
 
 仔細看，是不是一次 push 到多個不同的遠端 ( remote )，非常方便!!
 
-**GitHub**
+***GitHub***
+
 ![alt tag](http://i.imgur.com/JljPJHJ.png)
 
-**Bitbucket**
+***Bitbucket***
+
 ![alt tag](http://i.imgur.com/rkYHNl4.png)
 
 P.S 設定檔在資料夾底下的隱藏檔 ".git" 底下，裡面有一個 config
