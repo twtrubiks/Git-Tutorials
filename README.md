@@ -339,7 +339,6 @@ git branch -d dev
 ```
 git branch -D dev
 ```
-從遠程抓取分支，使用 git pull，如果有衝突，要先處理衝突
 
 ## 新建分支 branch 並 push
 
@@ -384,11 +383,13 @@ git checkout develop
 
 ## git pull
 
-通常在開始工作或要 push 之前，我們都會先使用 git pull 這道指令
+通常在開始工作或要 push 之前，會先從遠端抓取分支，
 
 ```
 git pull
 ```
+
+如果有衝突，要先解衝突。
 
 ## git fetch
 
