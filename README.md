@@ -100,8 +100,11 @@ git commit
 這時可以按鍵盤的<b>Ins鍵</b>(或按鍵盤上的<b>英文字 i </b>)即可輸入文字<br><br>
 ![alt tag](http://i.imgur.com/NFy16dp.jpg)<br><br>
 輸入完先按<b>Esc鍵</b>，按完後底下的INSERT會消失，接著直接打 <b>:wq</b> ，再按enter就會儲存並離開了。
-<br><br>
-<b>如何修改最後一次的commit呢?</b><br>
+
+更多參數可參考 [https://git-scm.com/docs/git-commit](https://git-scm.com/docs/git-commit) 說明。
+
+<b>如何修改最後一次的commit呢?</b>
+
 有時候我們commit完之後，才發現自己的commit內容手殘打錯了<br>
 這時候可以使用如下指令，他會跳出編輯視窗給你編輯你上一次的commit內容。
 ```
@@ -192,10 +195,15 @@ git reflog
 ```
 git reset --hard 642e7af
 ```
-有時候想消除(覆蓋)已經push出去的commit，這時候我們可以使用
+有時候想消除( 覆蓋 )已經push出去的commit，這時候我們可以使用
 ```
 git push --force 
 ```
+或是更簡短的寫法
+```
+git push -f
+```
+
 可以強制push。先回到某個版本，然後再強制push。
 
 ## checkout
@@ -433,6 +441,35 @@ git rebase master
 git rebase  就是將 master 的最新 commit 接回來，再補上自己分支的 commit。
 
 以上就是 git rebase  的介紹。
+
+
+
+## git revert
+
+假設我 commit history 為 A1 -> A2 -> A3 -> A4 -> A5 -> A6 
+
+我現在想要回 A4 這個 commit , 這時候我就可以使用  git revert ！！
+
+先 revert A6 
+```
+git revert A6
+```
+
+再 revert A5 
+```
+git revert A5
+```
+
+假如你再看現在的 commit history , 他會長的像這樣
+
+A1 -> A2 -> A3 -> A4 -> A5 -> A6 -> A6_revert -> A5_revert 
+
+這時候，其實你的 commit 就是在 A4 這個位置 。
+
+使用 git revert 的好處，就是可以保留 commit history , 萬一你又後悔了，
+
+也可以在 revert 回去。
+
 
 
 
