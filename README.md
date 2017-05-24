@@ -24,7 +24,7 @@ git config --global user.email
 ```
 ![alt tag](http://i.imgur.com/5mpS7Ij.jpg)
 
-Git 設定資料查看，可執行以下指令(文章末會有較詳細的教學)：
+Git 設定資料查看，可執行以下指令 ( 文章末會有較詳細的教學 )：
 ```
 git config --list
 ```
@@ -69,7 +69,7 @@ git commit 就可以把暫存區 ( Stage ) 裡所有修改的內容送到目前�
 git commit -m "xxxxx" 指令，-m 後面輸入的內容是本次修改 ( 送出 ) 的說明，
 
 盡量輸入一眼就可以看出這次送出修改了什麼的內容
-( 方便以後回去觀看能快速了解此次commit修改了什麼 )。
+( 方便以後回去觀看能快速了解此次 commit 修改了什麼 )。
 
 以下 demo 為在一個資料夾內新增一個 Hello.py 檔案
 
@@ -108,7 +108,7 @@ git commit
 ![alt tag](http://i.imgur.com/htNQ0dJ.jpg)
 
 
-這時可以按鍵盤的 **Ins鍵** (或按鍵盤上的 **英文字 i ** )即可輸入文字
+這時可以按鍵盤的 **Ins鍵** ( 或按鍵盤上的 **英文字 i** ) 即可輸入文字
 
 
 ![alt tag](http://i.imgur.com/NFy16dp.jpg)
@@ -134,9 +134,11 @@ git commit -m "init commit"
 git add missing_file.py
 git commit --amend
 ```
-如上狀況為當我 git commit -m "init commit" 之後，我發現我漏掉了 **missing_file.py** 這個檔案 ( commit 前忘記 add 進去 ) ，
+如上狀況為當我 git commit -m "init commit" 之後，
 
-這時候就可以使用 git commit --amend 來修正最後一次的 commit 。
+我發現我漏掉了 **missing_file.py** 這個檔案 ( commit 前忘記 add 進去 ) ，
+
+這時候就可以使用 git commit --amend 來修改最後一次的 commit 。
 
 
 有時候我們會為了方便，直接使用下面的指令一次加入全部的檔案
@@ -221,6 +223,7 @@ git reset --hard ad41df36b7
 git reflog
 ```
 ![alt tag](http://i.imgur.com/MaRlZZr.jpg)
+
 接著看你要回到哪個版本，再使用 git reset 即可。
 ```
 git reset --hard 642e7af
@@ -244,7 +247,7 @@ git checkout -- file 可以丟棄工作區的修改：
 ```
 git checkout  -- hello.py
 ```
-命令 git checkout -- hello.py意思就是，把 hello.py 文件在工作區的修改全部撤銷 ( 丟棄 ) ，
+命令 git checkout -- hello.py 意思就是，把 hello.py 文件在工作區的修改全部撤銷 ( 丟棄 ) ，
 
 讓這個檔案回到最近一次 git commit 或 git add 時的狀態。
 
@@ -308,7 +311,9 @@ git checkout bug1 為切換到一個名稱為 bug1 的分支底下。
 git checkout -b bug1
 ```
 
-我們在 bug1 分支上進行任何修改操作，然後再把工作成果 ( 補充一下，修改任何內容後請記得使用 git add 指令和 git commit 指令 ) 合併到 master 分支上：
+我們在 bug1 分支上進行任何修改操作，
+
+然後再把工作成果 ( 補充一下，修改任何內容後請記得使用 git add 指令和 git commit 指令 ) 合併到 master 分支上：
 ```
 git checkout master
 git merge bug1
@@ -420,7 +425,17 @@ git pull
 
 什麼是 rebase 呢 ? git rebase 就是避免多餘 ( 沒有意義 ) 的 merge !!! 先看看下面兩張圖
 
-補充 : ck = checkout  br = branch   st = status  cm = commit ，可以自行設定。
+補充 : 
+
+ck = checkout  
+
+br = branch   
+
+st = status  
+
+cm = commit 
+
+可以自行設定。
 
 圖一
 
@@ -432,7 +447,7 @@ git pull
 
 圖一 和 圖二 你喜歡看哪種圖 ?  答案很明顯，是 圖一 !!
 
-** rebase ** 的目的主要就是盡量讓圖都像 圖一
+**rebase** 的目的主要就是盡量讓圖都像 圖一
 
 用講的大家一定霧煞煞，所以我直接實戰給大家看。
 
@@ -561,8 +576,11 @@ git commit -m "conflict fixed"
 ```
 
 ## git stash 指令
-很多時候，我們正在開發一個新功能又或是 debug，然後突然有一個功能需要緊急修正，但你又不想 commit 現在
-的狀況，因為根本沒意義，事情只做了一半，這時候 ** stash ** 這個實用的指令就派上用場了。
+很多時候，我們正在開發一個新功能又或是 debug，然後突然有一個功能需要緊急修正，
+
+但你又不想 commit 現在的狀況，因為根本沒意義，事情只做了一半，這時候 **stash** 
+
+這個實用的指令就派上用場了。
 
 
 
@@ -659,7 +677,7 @@ git stash clear
 ![alt tag](http://i.imgur.com/8rHPsII.jpg)
 
 
-**.gitignore檔案格式範例**
+**.gitignore 檔案格式範例**
 
 
 ![alt tag](http://i.imgur.com/W3cxk9r.jpg)
