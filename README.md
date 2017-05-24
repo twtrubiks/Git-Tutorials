@@ -329,26 +329,6 @@ git merge bug1 指令用於合併 ( bug1分支 ) 指定分支到目前分支 ( m
 
 當然不是每次合併都能很順利的出現 Fast-forward，很多時候會出現衝突 CONFLICT 。
 
-
-**出現衝突 CONFLICT 該怎麼辦**
-
-步驟： 解衝突 -> add  -> commit
-
-假設今天我們想要放棄這個 merge 我們該怎麼做呢 ？
-
-```
-git merge --abort
-```
-
-或
-
-```
-git reset --hard HEAD
-```
-
-可以取消這次的 merge 回到 merge 前。
-
-
 如果順利合併 ( merge ) 完成後，就可以刪除 bug1 分支：
 ```
 git branch -d dev
@@ -386,16 +366,21 @@ git push --set-upstream origin v1
 
 ![alt tag](http://i.imgur.com/lOtzsk8.jpg)
 
-如果是第一次使用 git clone ，你會發現你沒有分支 ( 他只會 clone master 下來 ) ，可以使用下面指令 clone 你的分支，
+如果是第一次使用 git clone ，你會發現你只有 master 分支 ，
 
-假設我有一個 v1 分支，
+這時候我們先查看遠端還有什麼分支，
+
 ```
-git pull origin 分支名稱v1
+git branch -r
 ```
+
+假設遠端有一個名稱為 develop 的分支，
+
+我們只要 checkout 到該分支底下就可以了  
+
 ```
-git pull origin v1
+git checkout develop
 ```
-這樣就能將分支 clone 下來。
 
 ## git pull
 
@@ -574,6 +559,21 @@ git status 可以告訴我們衝突的文件。
 git add Hello.py
 git commit -m "conflict fixed"
 ```
+
+**假設今天我們想要放棄這個 merge 我們該怎麼做呢 ？**
+
+```
+git merge --abort
+```
+
+或
+
+```
+git reset --hard HEAD
+```
+
+可以取消這次的 merge 回到 merge 前。
+
 
 ## git stash 指令
 很多時候，我們正在開發一個新功能又或是 debug，然後突然有一個功能需要緊急修正，
