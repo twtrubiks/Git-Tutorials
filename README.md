@@ -34,12 +34,26 @@ Git 設定資料查看，可執行以下指令 ( 文章末會有較詳細的教�
 git config --list
 ```
 
+## git init 指令
+
+初始化 git
+
+```cmd
+git init
+```
+
+也可以指定資料夾
+
+```cmd
+git init <directory>
+```
+
 ## git clone 指令
 
 複製如圖位置網址 ( 不要複製我的哦~ 複製你自己的 )
 ![alt tag](http://i.imgur.com/EJ5JNjt.jpg)
 
-git clone ( 複製的網址 )
+git clone ( 複製的網址 ) SSH / HTTPS
 
 ```cmd
 git clone git@github.com:twtrubiks/test.git
@@ -153,7 +167,7 @@ git commit --amend
 git add .
 ```
 
-但是加完後發現其實有些檔案室不需要 add 進入的，這時候就可以使用如下指令去取消 add
+但是加完後發現其實有些檔案是不需要 add 進入的，這時候就可以使用如下指令去取消 add
 
 ```cmd
 git reset HEAD <file>
@@ -657,6 +671,12 @@ git stash list
 git stash pop
 ```
 
+假設今天你有很多的 stash，你可以指定，如下
+
+```cmd
+git stash pop stash@{0}
+```
+
 ![alt tag](http://i.imgur.com/zVF7no2.jpg)
 
 你會發現剛剛的東西回來了~
@@ -677,9 +697,15 @@ git stash apply
 git stash clear
 ```
 
-從下圖可以發現， stash 裡面的東西被我們刪除了
+從下圖可以發現，stash 裡面的東西被我們刪除了
 
 ![alt tag](http://i.imgur.com/PvzufbQ.jpg)
+
+如果你想丟棄指定的 stash，可以使用
+
+```cmd
+git stash drop stash@{0}
+```
 
 ## git 其他設定
 
