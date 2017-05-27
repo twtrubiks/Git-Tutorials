@@ -1,8 +1,8 @@
 # Git-Flow  基本教學  :memo:
 
-[Git-Flow Tutorials - youtube]()
+[Git-Flow Tutorials - youtube](https://youtu.be/zXlta66thZY)
 
-[Git-Flow SmartGit Tutorials - youtube]()
+[Git-Flow SmartGit Tutorials - youtube](https://youtu.be/ualXHytifbg)
 
 在開始要了解 Git-Flow 之前，建議大家先對 Git 有基本的認識，
 
@@ -106,7 +106,7 @@ Master 以及 Develop 這兩個分支非常重要，理論上要保護好這兩�
 
 更多詳細的介紹可參考
 
-[Git-Flow SmartGit Tutorials - youtube]()
+[Git-Flow SmartGit Tutorials - youtube](https://youtu.be/ualXHytifbg)
 
 ## Reference
 
