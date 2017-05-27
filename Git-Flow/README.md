@@ -64,7 +64,7 @@ Master 以及 Develop 這兩個分支非常重要，理論上要保護好這兩�
 
 ***Release***
 
-當我們認為 develop 已經是一個很穩定的版本時，我們會進入 release，該分支是由 develop 分支分出來的。通常我們會在該分支底下再做一次全面的測試以及上線前的準備 ( 發佈版本的記錄 )，完成realse 後，我們會 merge 回 master 以及 develop。
+當我們認為 develop 已經是一個很穩定的版本時，我們會進入 release，該分支是由 develop 分支分出來的。通常我們會在該分支底下再做一次全面的測試以及上線前的準備 ( 發佈版本的記錄 )，完成 release 後，我們會 merge 回 master 以及 develop。
 
 ***Hotfix***
 
