@@ -1,5 +1,9 @@
 # Git-Flow  基本教學  :memo:
 
+[Git-Flow Tutorials - youtube]()
+
+[Git-Flow SmartGit Tutorials - youtube]()
+
 在開始要了解 Git-Flow 之前，建議大家先對 Git 有基本的認識，
 
 可以參考我之前寫的 [Git-Tutorials GIT基本使用教學](https://github.com/twtrubiks/Git-Tutorials)
@@ -65,3 +69,49 @@ Master 以及 Develop 這兩個分支非常重要，理論上要保護好這兩�
 ***Hotfix***
 
 該分支是由 master 分支分出來的，通常是已經上線了，但突然發現一個非常緊急的 bug ，這時候我們就會開一個 Hotfix 出來修復該 bug ，完成後我們會再 merge 回 master 以及 develop。
+
+## 使用 SmartGit 來完成 Git-Flow
+
+類似的 GUI 介面有很多，大家可以找適合自己的使用，我在這邊用  [SmartGit](http://www.syntevo.com/smartgit/) 介紹。
+
+### 安裝 SmartGit
+
+請到  [SmartGit](http://www.syntevo.com/smartgit/)  下載符合自己的作業系統，
+
+安裝基本上不會有甚麼問題，比較需要注意的地方是如果你是非商用版，
+
+請選擇非商用 ( 如下圖 ) ，假如是商用版，請購買 License
+
+![](http://i.imgur.com/Qo6iy0l.jpg)
+
+設定一些東西即可完成
+
+![](http://i.imgur.com/thRWcvv.jpg)
+
+進到 SmartGit 後，請先選好專案，接著我們按  Git-Flow 的圖示 ( 如下圖 )
+
+![](http://i.imgur.com/MbJPEIF.jpg)
+
+通常我們  Git-Flow Type 會選 **Full** ， 也就是完整的分支
+
+![](http://i.imgur.com/xnUn9vS.jpg)
+
+你會發現左下角的兩個主要分支跑出來了
+
+![](http://i.imgur.com/XfWWByZ.jpg)
+
+如要新增任何的 Feature 或  Release ，可以點選  Git-Flow 的圖示
+
+![](http://i.imgur.com/0147G33.jpg)
+
+更多詳細的介紹可參考
+
+[Git-Flow SmartGit Tutorials - youtube]()
+
+## Reference
+
+* [gitflow](https://github.com/nvie/gitflow)
+
+## License
+
+MIT license
