@@ -26,7 +26,7 @@ git config --global user.name
 git config --global user.email
 ```
 
-![alt tag](http://i.imgur.com/5mpS7Ij.jpg)
+![alt tag](https://i.imgur.com/5mpS7Ij.jpg)
 
 Git 設定資料查看，可執行以下指令 ( 文章末會有較詳細的教學 )：
 
@@ -51,7 +51,7 @@ git init <directory>
 ## git clone 指令
 
 複製如圖位置網址 ( 不要複製我的哦~ 複製你自己的 )
-![alt tag](http://i.imgur.com/EJ5JNjt.jpg)
+![alt tag](https://i.imgur.com/EJ5JNjt.jpg)
 
 git clone ( 複製的網址 ) SSH / HTTPS
 
@@ -62,7 +62,7 @@ git clone git@github.com:twtrubiks/test.git
 第一次會出現 SSH 警告，選 YES 即可。
 
 如圖 ( 下載成功 )，在你的下載路徑下就會多出一個資料夾
-![alt tag](http://i.imgur.com/iIkTlqf.jpg)
+![alt tag](https://i.imgur.com/iIkTlqf.jpg)
 
 ## git status 指令
 
@@ -72,7 +72,7 @@ git status
 
 可以讓我們觀看目前的 repository ( repo 容器 )。
 
-![alt tag](http://i.imgur.com/5Gt98Vh.jpg)
+![alt tag](https://i.imgur.com/5Gt98Vh.jpg)
 
 意思是目前你的工作區是乾淨的。
 
@@ -95,12 +95,18 @@ git commit -m "xxxxx" 指令，-m 後面輸入的內容是本次修改 ( 送出 
 
 然後使用 git status 觀看目前的 repository ( repo 容器 )，你會看到 Hello.py 未被追蹤，如下圖
 
-![alt tag](http://i.imgur.com/dvj1DQh.jpg)
+![alt tag](https://i.imgur.com/dvj1DQh.jpg)
 
 可以使用如下指令
 
 ```cmd
 git add Hello.py
+```
+
+額外補充，下面這個指令很有趣，大家可以玩玩看
+
+```cmd
+git add -p
 ```
 
 接著再使用
@@ -113,7 +119,7 @@ git commit -m "add Hello.py"
 
 再使用 git status，你會發現工作區變乾淨了。如下圖
 
-![alt tag](http://i.imgur.com/6VrieNb.jpg)
+![alt tag](https://i.imgur.com/6VrieNb.jpg)
 
 補充，如果只有輸入
 
@@ -121,15 +127,15 @@ git commit -m "add Hello.py"
 git commit
 ```
 
-![alt tag](http://i.imgur.com/yZxKGTU.jpg)
+![alt tag](https://i.imgur.com/yZxKGTU.jpg)
 
 這時會跳出編輯視窗
 
-![alt tag](http://i.imgur.com/htNQ0dJ.jpg)
+![alt tag](https://i.imgur.com/htNQ0dJ.jpg)
 
 這時可以按鍵盤的 **Ins鍵** ( 或按鍵盤上的 **英文字 i** ) 即可輸入文字
 
-![alt tag](http://i.imgur.com/NFy16dp.jpg)
+![alt tag](https://i.imgur.com/NFy16dp.jpg)
 
 輸入完先按 **Esc鍵** ，按完後底下的 INSERT 會消失，接著直接打 **:wq** ，再按 enter 就會儲存並離開了。
 
@@ -174,11 +180,11 @@ git reset HEAD <file>
 ```
 
 範例，路徑下有 A.py 以及 B.py 這兩個檔案，然後我使用 **git add .** 加入，
-![alt tag](http://i.imgur.com/0S7TcEB.jpg)
+![alt tag](https://i.imgur.com/0S7TcEB.jpg)
 
 但加入完我發現其實 B.py 我還沒有要 add 進入，所以我這時候就可以使用 **git reset HEAD B.py** 去還原。
 
-![alt tag](http://i.imgur.com/3iAyEEx.jpg)
+![alt tag](https://i.imgur.com/3iAyEEx.jpg)
 
 ## git push 指令
 
@@ -188,7 +194,7 @@ git push
 
 將程式 push 到 github ( or bitbucket 之類 )上 , 如下圖
 
-![alt tag](http://i.imgur.com/d61Pau6.jpg)
+![alt tag](https://i.imgur.com/d61Pau6.jpg)
 
 ## 版本控制 - 歷史記錄
 
@@ -198,7 +204,7 @@ git log
 
 按 **小寫q** 可退出
 
-![alt tag](http://i.imgur.com/j11afCP.jpg)
+![alt tag](https://i.imgur.com/j11afCP.jpg)
 
 如果覺得版面太雜，可以使用下列指令
 
@@ -208,7 +214,15 @@ git log --pretty=oneline
 
 按 **小寫q** 可退出
 
-![alt tag](http://i.imgur.com/jz2cwUA.jpg)
+![alt tag](https://i.imgur.com/jz2cwUA.jpg)
+
+另外底下也是一個看 log 的方式（ 很酷 :satisfied:），有 GUI 的感覺（ 來源為文章最後的連結 ）
+
+```cmd
+git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --date=relative
+```
+
+![alt tag](https://i.imgur.com/XNQisuf.png)
 
 Git 中，使用 HEAD 表示目前的版本，
 
@@ -216,7 +230,7 @@ Git 中，使用 HEAD 表示目前的版本，
 git reset --hard HEAD
 ```
 
-![alt tag](http://i.imgur.com/pkFO8pk.jpg)
+![alt tag](https://i.imgur.com/pkFO8pk.jpg)
 
 如果現在要把目前版本退回到上一個版本，就可以使用 git reset 指令：
 
@@ -226,29 +240,29 @@ git reset --hard HEAD
 git reset --hard HEAD~1
 ```
 
-![alt tag](http://i.imgur.com/ZThoaUT.jpg)
+![alt tag](https://i.imgur.com/ZThoaUT.jpg)
 
 上上一個版本就是HEAD~2，
 
 如果要指定回到某個特定版本：
 
-![alt tag](http://i.imgur.com/KrCOC71.jpg)
+![alt tag](https://i.imgur.com/KrCOC71.jpg)
 
 ```cmd
 git reset --hard ad41df36b7
 ```
 
-`--hard` 這個參數，有三種選擇，分別為 `--mixed` ( default ） `--hard` `--soft`，
+`--hard` 這個參數，有三種選擇，分別為 `--mixed`( default ）`--hard` `--soft`，
 
 `--hard` 這個參數簡單解釋就是將之前的 commit 都丟掉（ 完全 **不保留** ）。
 
 `--soft` 這個參數簡單解釋就是將之前的 commit 都丟掉，但 **保留** 你之前工作區的狀態。
 
-`--mixed` (default）。
+`--hard` 和 `--soft` 這兩個我覺得用文字不好說明，我建議大家自己可以動手玩玩看，就可以了解他們之間的差異。
 
-`--hard` 和 `--soft` 這兩個我覺得用文字不好說明，我建議大家自己去玩玩看，就可以了解他們之間的差異。
+`--soft` 很適合使用在將多個無意義的 commit 合併成一個 commit。
 
-![alt tag](http://i.imgur.com/6RVutiK.jpg)
+![alt tag](https://i.imgur.com/6RVutiK.jpg)
 
 版本號 ( ad41df36b7 ) 沒必要全部都寫，寫前幾位就可以了，Git 會自動去找。
 
@@ -262,7 +276,7 @@ git reset --hard ad41df36b7
 git reflog
 ```
 
-![alt tag](http://i.imgur.com/MaRlZZr.jpg)
+![alt tag](https://i.imgur.com/MaRlZZr.jpg)
 
 接著看你要回到哪個版本，再使用 git reset 即可。
 
@@ -286,6 +300,14 @@ git push -f
 
 ***注意！在多人專案共同開發時，盡量不要用 --force 這種方法，因為有時候會害到別人，建議可以使用 revert 。***
 
+因為上面這個原因，所以建議用另一種比較安全的方式
+
+```cmd
+git push --force-with-lease
+```
+
+可以確保你沒有隨便丟掉別人的 commit。（ 如果有人比你早 commit push 上去，你就會無法 push 到 remote ）
+
 ## checkout
 
 git checkout -- file 可以丟棄工作區的修改：
@@ -298,7 +320,7 @@ git checkout  -- hello.py
 
 讓這個檔案回到最近一次 git commit 或 git add 時的狀態。
 
-![alt tag](http://i.imgur.com/SrCo4kH.jpg)
+![alt tag](https://i.imgur.com/SrCo4kH.jpg)
 
 當然也可以用 git reset 指令直接回到某個 commit。
 
@@ -320,7 +342,7 @@ git rm hello.py
 git commit -m "remove hello.py"
 ```
 
-![alt tag](http://i.imgur.com/sLMTDX7.jpg)
+![alt tag](https://i.imgur.com/sLMTDX7.jpg)
 
 另一種況狀是刪錯了，使用 git checkout 可以輕鬆還原檔案:
 
@@ -329,7 +351,7 @@ rm hello.py
 git checkout -- hello.py
 ```
 
-![alt tag](http://i.imgur.com/5X2NcfS.jpg)
+![alt tag](https://i.imgur.com/5X2NcfS.jpg)
 
 ## 新建與 合併 ( merge ) 分支 branch
 
@@ -345,7 +367,7 @@ git checkout -- hello.py
 git branch
 ```
 
-![alt tag](http://i.imgur.com/SVblXD2.jpg)
+![alt tag](https://i.imgur.com/SVblXD2.jpg)
 
 首先創建一個分支，bug1 分支 ( 名稱可以隨便取 )，然後切換到 bug1 分支：
 
@@ -358,7 +380,7 @@ git branch bug1 為創造一個名稱為 bug1 的分支，
 
 git checkout bug1 為切換到一個名稱為 bug1 的分支底下。
 
-![alt tag](http://i.imgur.com/JtGBHk4.jpg)
+![alt tag](https://i.imgur.com/JtGBHk4.jpg)
 
 以上兩行指令，相當於下列一行指令
 
@@ -375,7 +397,7 @@ git checkout master
 git merge bug1
 ```
 
-![alt tag](http://i.imgur.com/pF4xDUE.jpg)
+![alt tag](https://i.imgur.com/pF4xDUE.jpg)
 
 git checkout master 為切換到一個名稱為 master 的分支底下。
 
@@ -391,7 +413,7 @@ git merge bug1 指令用於合併 ( bug1分支 ) 指定分支到目前分支 ( m
 git branch -d dev
 ```
 
-![alt tag](http://i.imgur.com/LmKKWxR.jpg)
+![alt tag](https://i.imgur.com/LmKKWxR.jpg)
 
 如果要丟掉一個沒有被合併過的分支，可以使用 git branch -D 分支名稱  強行刪除。
 
@@ -403,11 +425,11 @@ git branch -D dev
 
 相信大家有時候在 github 上面都會看到，如下圖，很多分支
 
-![alt tag](http://i.imgur.com/wrIdlzS.jpg)
+![alt tag](https://i.imgur.com/wrIdlzS.jpg)
 
 那我們要如何建立分支呢? 首先，我們先看下面這張圖
 
-![alt tag](http://i.imgur.com/3U092a1.jpg)
+![alt tag](https://i.imgur.com/3U092a1.jpg)
 
 有一個 v1 的分支，並且我在分支上增加一個 g.py 並且 commit。
 
@@ -419,11 +441,11 @@ git branch -D dev
 git push --set-upstream origin v1
 ```
 
-![alt tag](http://i.imgur.com/1fuS2VY.jpg)
+![alt tag](https://i.imgur.com/1fuS2VY.jpg)
 
 接下來你可以到網頁上看 ( 這裡用 bitbucket 當作範例 ) ，你會發現有分支 v1 了
 
-![alt tag](http://i.imgur.com/lOtzsk8.jpg)
+![alt tag](https://i.imgur.com/lOtzsk8.jpg)
 
 如果是第一次使用 git clone ，你會發現你只有 master 分支 ，
 
@@ -457,11 +479,11 @@ git pull
 
 我們先來看下面這張圖，  **git fetch + git merge**
 
-![alt tag](http://i.imgur.com/COuWByw.png)
+![alt tag](https://i.imgur.com/COuWByw.png)
 
 再看這張圖  **git pull**
 
-![alt tag](http://i.imgur.com/8FGuA75.png)
+![alt tag](https://i.imgur.com/8FGuA75.png)
 
 這樣是不是清楚多了!!!
 
@@ -483,11 +505,11 @@ cm = commit
 
 圖一
 
-![alt tag](http://i.imgur.com/mWY0f2J.png)
+![alt tag](https://i.imgur.com/mWY0f2J.png)
 
 圖二
 
-![alt tag](http://i.imgur.com/QVZc5P5.png)
+![alt tag](https://i.imgur.com/QVZc5P5.png)
 
 圖一 和 圖二 你喜歡看哪種圖 ?  答案很明顯，是 圖一 !!
 
@@ -499,45 +521,45 @@ cm = commit
 
 目前分支
 
-![alt tag](http://i.imgur.com/E0ahfnD.png)
+![alt tag](https://i.imgur.com/E0ahfnD.png)
 
-![alt tag](http://i.imgur.com/Lb4dB0V.png)
+![alt tag](https://i.imgur.com/Lb4dB0V.png)
 
 以上說明 : 先建立 v1 branch，接著 add 後再 commit。
 
 假設現在又有人 push 了，以下模擬 pull ，自己加上一個 commit
 
-![alt tag](http://i.imgur.com/hFKX4yJ.png)
+![alt tag](https://i.imgur.com/hFKX4yJ.png)
 
 以上說明 : 自己在 master 分支上加 t2.txt ， 並且commit ( 模擬 pull )
 
 接下來，切換到 master 分支下和 v1 branch 分支 合併，並且 push
 
-![alt tag](http://i.imgur.com/0sCH2Q1.png)
+![alt tag](https://i.imgur.com/0sCH2Q1.png)
 
 你會發現，顯示出來的圖並不漂亮，如下圖
 
-![alt tag](http://i.imgur.com/zbIPdyb.png)
+![alt tag](https://i.imgur.com/zbIPdyb.png)
 
 示範 **使用 rebase** 的範例
 
 前面的部份基本上一樣
 
-![alt tag](http://i.imgur.com/E0ahfnD.png)
+![alt tag](https://i.imgur.com/E0ahfnD.png)
 
-![alt tag](http://i.imgur.com/Lb4dB0V.png)
+![alt tag](https://i.imgur.com/Lb4dB0V.png)
 
 以上說明 : 先建立 v1 branch，接著 add 後再 commit。
 
 假設現在又有人 push 了，以下模擬 pull ，自己加上一個 commit
 
-![alt tag](http://i.imgur.com/hFKX4yJ.png)
+![alt tag](https://i.imgur.com/hFKX4yJ.png)
 
 以上說明 : 自己在 master 分支上加 t2.txt ， 並且 commit ( 模擬 pull )
 
 ***差異的部份***
 
-![alt tag](http://i.imgur.com/45ZXGiK.png)
+![alt tag](https://i.imgur.com/45ZXGiK.png)
 
 以上說明 : 先切換到 v1 分支，然後使用以下指令
 
@@ -545,13 +567,13 @@ cm = commit
 git rebase master
 ```
 
-![alt tag](http://i.imgur.com/Lpd9Kjr.png)
+![alt tag](https://i.imgur.com/Lpd9Kjr.png)
 
 以上說明 : 再切回 master 分支，並且使用 merge 合併 v1 分支，最後在 push
 
 你看~  是不是變的整齊又漂亮多了呢?
 
-![alt tag](http://i.imgur.com/1jBI7pw.png)
+![alt tag](https://i.imgur.com/1jBI7pw.png)
 
 git rebase  就是將 master 的最新 commit 接回來，再補上自己分支的 commit。
 
@@ -591,7 +613,7 @@ A1 -> A2 -> A3 -> A4 -> A5 -> A6 -> A6_revert -> A5_revert
 
 通常我目前最容易遇到衝突 conflicts ，就是使用 pull 這個指令的時候
 
-![alt tag](http://i.imgur.com/Eph0Vw1.jpg)
+![alt tag](https://i.imgur.com/Eph0Vw1.jpg)
 
 仔細看這張圖，如果使用**pull**這個指令，會幫你 **自動 merge** ( 如圖裡的 Auto-merging Hello.py )，
 
@@ -601,11 +623,11 @@ A1 -> A2 -> A3 -> A4 -> A5 -> A6 -> A6_revert -> A5_revert
 
 git status 可以告訴我們衝突的文件。
 
-![alt tag](http://i.imgur.com/vlVcXn8.jpg)
+![alt tag](https://i.imgur.com/vlVcXn8.jpg)
 
 打開衝突文件我們會看到 Git 用 <<<<<<<，=======，>>>>>>> 標記出不同分支的內容，我們修改完畢後再提交：
 
-![alt tag](http://i.imgur.com/rlPOaxn.jpg)
+![alt tag](https://i.imgur.com/rlPOaxn.jpg)
 
 通常我們會手動下去修改衝突 conflicts，然後再加個 commit
 
@@ -638,7 +660,7 @@ git reset --hard HEAD
 
 舉個例子，假設我們改了 A.py 和 B.py 這兩個檔案
 
-![alt tag](http://i.imgur.com/7xX0T1T.jpg)
+![alt tag](https://i.imgur.com/7xX0T1T.jpg)
 
 然後，現在突然有一個bug必須馬上 ( 立刻 ) 處理，但是，啊我手上的事情還沒做完阿~~~~
 這時候，可以利用以下指令
@@ -647,7 +669,7 @@ git reset --hard HEAD
 git stash
 ```
 
-![alt tag](http://i.imgur.com/cYCH8mV.jpg)
+![alt tag](https://i.imgur.com/cYCH8mV.jpg)
 
 假如你想要更清楚自己這次的 stash 原因是什麼，或是這是正在開發什麼功能
 可以使用以下指令
@@ -660,11 +682,11 @@ git stash save -u "我是註解"
 git stash save -u "feature"
 ```
 
-![alt tag](http://i.imgur.com/nGS11Px.jpg)
+![alt tag](https://i.imgur.com/nGS11Px.jpg)
 
 接下來你可以使用 status 指令，你會發現變乾淨了
 
-![alt tag](http://i.imgur.com/Xf53GfM.jpg)
+![alt tag](https://i.imgur.com/Xf53GfM.jpg)
 
 並且可以使用下列的指令來觀看 stash 裡面的東西
 
@@ -672,7 +694,7 @@ git stash save -u "feature"
 git stash list
 ```
 
-![alt tag](http://i.imgur.com/jQPiYiX.jpg)
+![alt tag](https://i.imgur.com/jQPiYiX.jpg)
 
 然後你很努力地解決這個 bug，commit 完之後，
 可以再使用下列的指令把 stash 取回來，這指令取回後也會刪除 stash
@@ -687,7 +709,7 @@ git stash pop
 git stash pop stash@{0}
 ```
 
-![alt tag](http://i.imgur.com/zVF7no2.jpg)
+![alt tag](https://i.imgur.com/zVF7no2.jpg)
 
 你會發現剛剛的東西回來了~
 
@@ -699,7 +721,7 @@ git stash apply
 
 如下圖，你可以發現取回後， stash 並沒有被刪除
 
-![alt tag](http://i.imgur.com/w3Ip3iW.jpg)
+![alt tag](https://i.imgur.com/w3Ip3iW.jpg)
 
 如果你只是想要刪除暫存，可以使用下列的指令
 
@@ -709,7 +731,7 @@ git stash clear
 
 從下圖可以發現，stash 裡面的東西被我們刪除了
 
-![alt tag](http://i.imgur.com/PvzufbQ.jpg)
+![alt tag](https://i.imgur.com/PvzufbQ.jpg)
 
 如果你想丟棄指定的 stash，可以使用
 
@@ -735,11 +757,11 @@ git stash drop stash@{0}
 
 **.gitignore** 檔案直接放在目錄底下即可
 
-![alt tag](http://i.imgur.com/8rHPsII.jpg)
+![alt tag](https://i.imgur.com/8rHPsII.jpg)
 
 ### .gitignore 檔案格式範例
 
-![alt tag](http://i.imgur.com/W3cxk9r.jpg)
+![alt tag](https://i.imgur.com/W3cxk9r.jpg)
 
 有時候常常手殘 key 錯指令或是記不起來
 
@@ -752,13 +774,13 @@ git stash drop stash@{0}
 git config --global alias.st status
 ```
 
-![alt tag](http://i.imgur.com/4NNasgB.jpg)
+![alt tag](https://i.imgur.com/4NNasgB.jpg)
 
 ```cmd
 git config --global alias.br branch
 ```
 
-![alt tag](http://i.imgur.com/NIc71AO.jpg)
+![alt tag](https://i.imgur.com/NIc71AO.jpg)
 
 ```cmd
 git config --global alias.ck checkout
@@ -768,13 +790,39 @@ git config --global alias.ck checkout
 git config --global alias.cm commit
 ```
 
+```cmd
+git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+```
+
+將前面這一大串變成一個別名，這樣以後只需要執行 `git lg` 即可，
+
+![alt tag](https://i.imgur.com/IvQLsMR.png)
+
 可能有人會問，那這個設定檔文件在哪裡呢?
 
 通常會在你的使用者底下，例如我這台電腦使用者為 HJ，設定檔文件就會在 **C:\Users\HJ** 底下，
 
 他是一個  **隱藏文件.gitconfig** ，打開他的話格式如下。
 
-![alt tag](http://i.imgur.com/iXjIqv9.jpg)
+![alt tag](https://i.imgur.com/iXjIqv9.jpg)
+
+不知道大家有沒有注意到 `--global` 這個參數，他代表的意思是全域的，如果說你今天是執行
+
+```cmd
+git config alias.stu status
+```
+
+代表只有在該目錄底下時才會有作用。
+
+那這個有什麼用呢？ 試想一種情境，假設你在特定的資料夾底下，想要使用特定的信箱去 push，而其他的資料夾，
+
+則一樣使用公司的信箱，這時候，就非常適合使用這種方法完成。
+
+更多資訊細節可使用以下命令查看
+
+```cmd
+man git-config
+```
 
 ## 使用 Git 一次 Push 到多個不同的遠端 ( remote )
 
@@ -790,7 +838,7 @@ git config --global alias.cm commit
 git remote -v
 ```
 
-![alt tag](http://i.imgur.com/Qb5VHoP.png)
+![alt tag](https://i.imgur.com/Qb5VHoP.png)
 
 接著我們使用下列指令新增一個 origin 的遠端
 
@@ -802,29 +850,33 @@ git remote set-url --add origin <url>
 git remote set-url --add origin git@github.com:twtrubiks/test2.git
 ```
 
-![alt tag](http://i.imgur.com/FKzexVE.png)
+![alt tag](https://i.imgur.com/FKzexVE.png)
 
 我們再用 git remote -v 查看一次，你會發現多了剛剛新增的遠端 ( remote )
 
-![alt tag](http://i.imgur.com/p1q7C4b.png)
+![alt tag](https://i.imgur.com/p1q7C4b.png)
 
 最後我們再 push
 
-![alt tag](http://i.imgur.com/6VKh8Bz.png)
+![alt tag](https://i.imgur.com/6VKh8Bz.png)
 
 仔細看，是不是一次 push 到多個不同的遠端 ( remote )，非常方便!!
 
 ***GitHub***
 
-![alt tag](http://i.imgur.com/JljPJHJ.png)
+![alt tag](https://i.imgur.com/JljPJHJ.png)
 
 ***Bitbucket***
 
-![alt tag](http://i.imgur.com/rkYHNl4.png)
+![alt tag](https://i.imgur.com/rkYHNl4.png)
 
 P.S 設定檔在資料夾底下的隱藏檔 ".git" 底下，裡面有一個 config
 
-![alt tag](http://i.imgur.com/41xb8eu.png)
+![alt tag](https://i.imgur.com/41xb8eu.png)
+
+## Reference
+
+* [13 Git tips for Git's 13th birthday](https://opensource.com/article/18/4/git-tips)
 
 ## Donation
 
