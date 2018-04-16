@@ -238,6 +238,16 @@ git reset --hard HEAD~1
 git reset --hard ad41df36b7
 ```
 
+`--hard` 這個參數，有三種選擇，分別為 `--mixed` ( default ） `--hard` `--soft`，
+
+`--hard` 這個參數簡單解釋就是將之前的 commit 都丟掉（ 完全 **不保留** ）。
+
+`--soft` 這個參數簡單解釋就是將之前的 commit 都丟掉，但 **保留** 你之前工作區的狀態。
+
+`--mixed` (default）。
+
+`--hard` 和 `--soft` 這兩個我覺得用文字不好說明，我建議大家自己去玩玩看，就可以了解他們之間的差異。
+
 ![alt tag](http://i.imgur.com/6RVutiK.jpg)
 
 版本號 ( ad41df36b7 ) 沒必要全部都寫，寫前幾位就可以了，Git 會自動去找。
