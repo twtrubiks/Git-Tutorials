@@ -581,7 +581,7 @@ git rebase  就是將 master 的最新 commit 接回來，再補上自己分支�
 
 ## git pull 補充
 
-既然介紹完了 git fetch 以及 git rebase 之後，接下來我要再補充一些 git pull 額外的 options 參數
+既然介紹完了 `git fetch` 以及 `git rebase` 之後，接下來我要再補充一些 `git pull` 額外的 options 參數
 
 ```cmd
 git pull [<options>] [<repository> [<refspec>…​]]
@@ -600,29 +600,31 @@ git pull --rebase = git fetch + git rebase
 
 看起來比較舒服，所以就使用 `git pull --rebase` 吧 ( 前提是你要知道你在幹嘛 :smile: )。
 
-這邊我模擬 git pull 以及 git pull --rebase 的差異，順便加上衝突的情況，因為步驟蠻多的，
+這邊我模擬 `git pull` 以及 `git pull --rebase` 的差異，順便加上衝突的情況，因為步驟蠻多的，
 
 所以如果你想了解更多他的概念，請參考以下手把手教學，
 
-[git pull vs git pull --rebase](https://youtu.be/8h0K-2OaeSk)
+[Youtube Tutorial - git pull vs git pull --rebase](https://youtu.be/8h0K-2OaeSk)
 
-使用 git pull 後的結果，code review 的人一定翻桌 ( 如下圖 ):triumph:
+使用 `git pull` 後的結果，code review 的人一定翻桌 ( 如下圖 ):triumph:
 
-這邊我有順便模擬衝突的時候，你會發現如果使用 git pull 會多一個 commit (也就是下方的 "fix conflict")。
+這邊我有順便模擬衝突的時候，你會發現如果使用 `git pull` 會多一個 commit (也就是下方的 "fix conflict")。
 
 ![alt tag](https://i.imgur.com/CNgKR3y.png)
 
-使用 git pull --rebase 後的結果，code review 的人表示溫馨  ( 如下圖 ):innocent:
+使用 `git pull --rebase` 後的結果，code review 的人表示溫馨  ( 如下圖 ):innocent:
 
-這邊我有順便模擬衝突的時候，你會發現如果使用 git pull --rebase 並不會像剛剛一樣多了一個 commit，
+這邊我有順便模擬衝突的時候，你會發現如果使用 `git pull --rebase` 並不會像剛剛一樣多了一個 commit，
 
-原因是因為當我們使用 git pull --rebase 造成衝突時，修好衝突的內容之後，git add xxxx，接著我們會
+原因是因為當我們使用 `git pull --rebase` 造成衝突時，修好衝突的內容之後，git add xxxx，接著我們會
 
-直接執行 git rebase --continue。
+直接執行 `git rebase --continue`。
 
 ![alt tag](https://i.imgur.com/RKMo9ue.png)
 
-假設今天你執行了 git pull --rebase 之後，發現很難受 :fearful:，想要取消，直接執行 `git rebase --abort` 即可回到之前的狀態。
+假設今天你執行了 `git pull --rebase` 之後，發現很難受 :fearful:，想要取消，
+
+直接執行 `git rebase --abort` 即可回到之前的狀態。
 
 ## git revert
 
@@ -783,6 +785,22 @@ git stash clear
 ```cmd
 git stash drop stash@{0}
 ```
+
+## git show
+
+一般來說，我只用他來看這個 commit 修改了哪些東西
+
+```cmd
+git show <commit ID>
+```
+
+![alt tag](https://i.imgur.com/rjpl8VL.png)
+
+```cmd
+git show [<options>] [<object>…​]
+```
+
+其他更詳細的介紹，請參考 [https://git-scm.com/docs/git-show](https://git-scm.com/docs/git-show)
 
 ## git 其他設定
 
