@@ -579,6 +579,51 @@ git rebase  就是將 master 的最新 commit 接回來，再補上自己分支�
 
 以上就是 git rebase  的介紹。
 
+## git pull 補充
+
+既然介紹完了 git fetch 以及 git rebase 之後，接下來我要再補充一些 git pull 額外的 options 參數
+
+```cmd
+git pull [<options>] [<repository> [<refspec>…​]]
+```
+
+更多詳細指令可參考 [https://git-scm.com/docs/git-pull#_options](https://git-scm.com/docs/git-pull#_options)。
+
+這裡簡單整理一下，
+
+```cmd
+git pull = git fetch + git merge
+git pull --rebase = git fetch + git rebase
+```
+
+在 [git-rebase](https://github.com/twtrubiks/Git-Tutorials#git-rebase) 中已經讓大家了解到使用 git-rebase 可以讓 code review 的人
+
+看起來比較舒服，所以就使用 `git pull --rebase` 吧 ( 前提是你要知道你在幹嘛 :smile: )。
+
+這邊我模擬 git pull 以及 git pull --rebase 的差異，順便加上衝突的情況，因為步驟蠻多的，
+
+所以如果你想了解更多他的概念，請參考以下手把手教學，
+
+[git pull vs git pull --rebase](https://youtu.be/8h0K-2OaeSk)
+
+使用 git pull 後的結果，code review 的人一定翻桌 ( 如下圖 ):triumph:
+
+這邊我有順便模擬衝突的時候，你會發現如果使用 git pull 會多一個 commit (也就是下方的 "fix conflict")。
+
+![alt tag](https://i.imgur.com/CNgKR3y.png)
+
+使用 git pull --rebase 後的結果，code review 的人表示溫馨  ( 如下圖 ):innocent:
+
+這邊我有順便模擬衝突的時候，你會發現如果使用 git pull --rebase 並不會像剛剛一樣多了一個 commit，
+
+原因是因為當我們使用 git pull --rebase 造成衝突時，修好衝突的內容之後，git add xxxx，接著我們會
+
+直接執行 git rebase --continue。
+
+![alt tag](https://i.imgur.com/RKMo9ue.png)
+
+假設今天你執行了 git pull --rebase 之後，發現很難受 :fearful:，想要取消，直接執行 `git rebase --abort` 即可回到之前的狀態。
+
 ## git revert
 
 假設我 commit history 為 A1 -> A2 -> A3 -> A4 -> A5 -> A6
