@@ -579,6 +579,375 @@ git rebase  就是將 master 的最新 commit 接回來，再補上自己分支�
 
 以上就是 git rebase  的介紹。
 
+## git rebase interactive
+
+小弟我當初年輕，一直以為 `git rebase` 就只是讓 commit log 看起來比較乾淨而已，結果無意間發現，
+
+`git rebase` 的 interactive 超強，所以，這邊就來介紹 `git rebase` 的強大功能 :smirk:
+
+以下是 git rebase interactive 可以使用的指令，這些說明是我從 git 中複製出來的，等等會顯示給大家看，
+
+```cmd
+# Commands:
+# p, pick = use commit
+# r, reword = use commit, but edit the commit message
+# e, edit = use commit, but stop for amending
+# s, squash = use commit, but meld into previous commit
+# f, fixup = like "squash", but discard this commit's log message
+# x, exec = run command (the rest of the line) using shell
+# d, drop = remove commit
+```
+
+如果大家想要更進一步的了解，請參考 [INTERACTIVE MODE](https://git-scm.com/docs/git-rebase#_interactive_mode)，
+
+pick 沒什麼好講的，就使用這個 commit 而已:smile:
+
+### reword
+
+[Youtube Tutorial - git rebase interactive - reword - PART 1](https://youtu.be/JhY0rR2wQq0)
+
+```cmd
+# Commands:
+# p, pick = use commit
+# r, reword = use commit, but edit the commit message
+```
+
+以下為官方的說明
+
+```txt
+If you just want to edit the commit message for a commit, replace the command "pick" with the command "reword".
+```
+
+說明已經很清楚了，就是可以編輯 commit message。
+
+( 不能修改 commit 內容，也就是 files 內容 )
+
+假設，現在我們有一個 git log 是這樣，
+
+![alt tag](https://i.imgur.com/6bWnJnK.png)
+
+commit id 2659f65 有 Typo，正確的 commit message 應該是  add c.py 才對，
+
+所以現在要修正他，我們的目標 commit id 為 2659f65，指令為
+
+```cmd
+git rebase -i <after-this-commit>
+```
+
+after-this-commit 這個是什麼意思:question:
+
+簡單說，就是要選當下的 commit id 的上一個，
+
+以這個例子來說，我們的目標 commit id 為 2659f65，但指令我們必須下
+
+```cmd
+git rebase -i f0a761d
+```
+
+![alt tag](https://i.imgur.com/d15nGjx.png)
+
+這樣應該就很清楚了，總之，記得要選擇目標 commit id 的上一個就對了。
+
+當你按下 ENTER 之後，你應該會看到下圖
+
+![alt tag](https://i.imgur.com/4ISGcW1.png)
+
+A 的部份就是我們要修改的目標，B 的部分就是說明 ( 前面貼給大家看的東西 )，
+
+接著，按 i 進入編輯模式，然後將目標改成 r 或是 reword 都可以，接著輸入 `:wq`
+
+![alt tag](https://i.imgur.com/zPeHuDa.png)
+
+接著我們再按下 ENTER，會再跳出一次畫面，這時候，你就將 commit 訊息修改成
+
+正確的，將  add c.py Typo 修改為 add c.py
+
+![alt tag](https://i.imgur.com/brYbNqy.png)
+
+輸入 `:wq` 之後，再 ENTER ( 完成 )
+
+![alt tag](https://i.imgur.com/kitKqrm.png)
+
+我們再用 log 確認一下( 如下圖 )，的確修改成功了，成功將訊息修改為 add c.py，
+
+![alt tag](https://i.imgur.com/rWojGIu.png)
+
+這邊有個地方要和大家提一下，就是 commit id 會改變，我把改變的地方框出來給各位看，
+
+修改前
+
+![alt tag](https://i.imgur.com/6i6Wv35.png)
+
+修改後
+
+![alt tag](https://i.imgur.com/mvj96U2.png)
+
+簡單來說，就是目前 commit id 之後的 commit id 都會改變 ( 有點繞口 :sweat_smile: )
+
+### edit
+
+[Youtube Tutorial - git rebase interactive - edit - PART 2](https://youtu.be/TCKjQppHxxQ)
+
+```cmd
+# Commands:
+# p, pick = use commit
+# e, edit = use commit, but stop for amending
+```
+
+以下為官方的說明
+
+```txt
+By replacing the command "pick" with the command "edit", you can tell git rebase to stop after applying that commit, so that you can edit the files and/or the commit message, amend the commit, and continue rebasing.
+```
+
+簡單說，reword 只可以修改 commit message，而 edit 不只可以修改 commit message ，還可以修改 files 內容。
+
+先來看看下面這張圖
+
+![alt tag](https://i.imgur.com/9j0JnKw.png)
+
+這圖很明顯 add a.py -> add b.py -> add c.py -> add d.py ，現在我想在 add c.py 和 add d.py 中再加一個東西，
+
+也就是變成 add a.py -> add b.py -> add c.py -> add c1.py -> add d.py  這樣。
+
+增加一個  add c1.py 的情境時就可以使用 edit 了，( 以下我就不說那麼詳細了，我直接講重點 )，
+
+先執行以下指令 ( 我們的目標是 a7ed6ff ，所以選他的上一個 commit id，也就是 f0a761d )
+
+```cmd
+git rebase -i f0a761d
+```
+
+這次我們將 pick 修改成 e 或是 edit ( 如下圖 )
+
+![alt tag](https://i.imgur.com/bKrLIl3.png)
+
+當你按下 ENTER 之後，你會看到下圖，
+
+![alt tag](https://i.imgur.com/whkCzok.png)
+
+A 的部份是可以修改 commit message，
+
+B 的部份則是和你說當你修改 ( 滿足 ) 完畢，可以執行 `git rebase --continue`，
+
+A 的部份我們不做了，但我們現在來加工吧 ( 增加 c1.py )，
+
+首先，我們建立一個 c1.py 檔案，然後 `git add c1.py`，接著 commit 他 ( 如下圖 )
+
+![alt tag](https://i.imgur.com/frYBUfT.png)
+
+剛剛有說過了，當你滿足時，可執行 `git rebase --continue`，收工
+
+![alt tag](https://i.imgur.com/sjnEn0H.png)
+
+再用 log 確認一下，太神了 :satisfied: 成功加上去了
+
+![alt tag](https://i.imgur.com/irECwLH.png)
+
+### squash
+
+[Youtube Tutorial - git rebase interactive - squash fixup - PART 3](https://youtu.be/bfrZrbEHis0)
+
+```cmd
+# Commands:
+# p, pick = use commit
+# s, squash = use commit, but meld into previous commit
+```
+
+以下為官方的說明
+
+```text
+ The suggested commit message for the folded commit is the concatenation of the commit messages of the first commit and of those with the "squash" command,
+```
+
+簡單說，你如果想要將多個 commit 合併成一個，使用 squash 就對了，( 以下我就不說那麼詳細了，我直接講重點 )，
+
+這次的目標是要將 commit id fc45824 以及 commit id a7ed6ff 合併起來 ( 如下圖 )
+
+![alt tag](https://i.imgur.com/v8XwOTN.png)
+
+先執行以下指令
+
+```cmd
+git rebase -i f0a761d
+```
+
+接著你會看到下圖，我們將 fc45824 這個 cmmit 的 pick 修改成 s 或 squash
+
+( 他會合併他的前一個，也就是 a7ed6ff )
+
+![alt tag](https://i.imgur.com/rgWkvVp.png)
+
+( 如果你要合併多個，就多個都改成 s 或 squash )
+
+將著按下 ENTER，會看到下圖
+
+![alt tag](https://i.imgur.com/pB6yllA.png)
+
+這時候他已經合併了這兩個 commit，我們就可以輸入新的 commit message，
+
+這邊我們輸入 add c.py and c1.py
+
+![alt tag](https://i.imgur.com/m9E6KUp.png)
+
+再按 ENTER ( 成功 )
+
+![alt tag](https://i.imgur.com/X0O7I5H.png)
+
+可以再用 log 確認一下，我們成功將兩個 commit 合併了
+
+![alt tag](https://i.imgur.com/r53KIev.png)
+
+c.py 以及 c1.py 都存在，代表我們成功了:satisfied:
+
+![alt tag](https://i.imgur.com/WhkLDGa.png)
+
+### fixup
+
+[Youtube Tutorial - git rebase interactive - squash fixup - PART 3](https://youtu.be/bfrZrbEHis0)
+
+```cmd
+# Commands:
+# p, pick = use commit
+# f, fixup = like "squash", but discard this commit's log message
+```
+
+以下為官方的說明
+
+```text
+omits the commit messages of commits with the "fixup" command.
+```
+
+其實這個和 squash 很像，通常如果我們要忽略一個 commit message 但保留 commit 的內容，我們就會使用 fixup，
+
+目標，這邊我們想要移除 fc45824 的個 commit ( 但保留 commit 的內容 )
+
+![alt tag](https://i.imgur.com/AFrd0UA.png)
+
+先執行以下指令
+
+```cmd
+git rebase -i f0a761d
+```
+
+將 fc45824 的 pick 修改成 f 或 fixup ( 如下圖 )
+
+( 他會移除 fc45824 這個 commit message ，但保留 commit 的內容 )
+
+![alt tag](https://i.imgur.com/aDH1y1n.png)
+
+接著 ENTER，成功 rebase
+
+![alt tag](https://i.imgur.com/BMs2h8r.png)
+
+可以再用 log 確認一下，我們忽略了 add c1.py 這個 commit
+
+![alt tag](https://i.imgur.com/bgYJa6T.png)
+
+但是 c.py 以及 c1.py 都存在 ( 只忽略 commit message )，
+
+![alt tag](https://i.imgur.com/tYrB3F9.png)
+
+看到這裡，大家其實可以想一想 squash 和 fixup 真的非常類似，
+
+只不過 squash 可以修改 commit message。
+
+簡單一點，單純想要忽略某一個 commit message 時，使用 fixup，
+
+想要合併 commit 並修改 commit message 時，使用 squash。
+
+### exec
+
+[Youtube Tutorial - git rebase interactive - exec drop - PART 4](https://youtu.be/u8imRiiSyzk)
+
+```cmd
+# Commands:
+# p, pick = use commit
+# x, exec = run command (the rest of the line) using shell
+```
+
+以下為官方的說明
+
+```text
+You may want to check that your history editing did not break anything by running a test, or at least recompiling at intermediate points in history by using the "exec" command (shortcut "x")
+```
+
+這個功能我比較少用，但還是說一下，簡單說，就是他可以用來 check 你的
+
+rebase 改動是不是影響到整體 ( 用 exec command 確認 )。
+
+聽不太懂 :question: 沒關係，假如我今天做了一大堆的 rabase 更動，但我想確認我這樣做了之後，
+
+對整體是不是有影響，也就是可以在更動時，順便跑你的 test 去確認整體是正常 work。
+
+還是聽不懂 :question: 也沒關係，我用一個範例給大家看
+
+![alt tag](https://i.imgur.com/iu1bEOw.png)
+
+如上圖，假如我想要在我更動中做一些 test 去確保我的更動不會影響整體，
+
+( 雖然這邊都是 pick，也就是沒改動，但方便說明，大家請自行想像有改動:sweat_smile: )
+
+![alt tag](https://i.imgur.com/2c9ycmS.png)
+
+A 的部份 echo "test sucess" 這個自然不用有問題，
+
+但是 B 的部分就會出問題，因為根本沒有 error 這個指令，
+
+當如果執行到 shell 有錯誤時，他會停下來，讓你修正，
+
+如下圖，我們停在了 add c.py 這個 commit 上，因為接下來得 test error 了
+
+![alt tag](https://i.imgur.com/yVB3naC.png)
+
+這時候我們可以修正問題，修正完了之後，再執行 `git rebase --continue`。
+
+![alt tag](https://i.imgur.com/YBD0d9V.png)
+
+這個功能我想應該是讓你去邊修改邊跑你自己的 test，確保改動都正常。
+
+### drop
+
+[Youtube Tutorial - git rebase interactive - exec drop - PART 4](https://youtu.be/u8imRiiSyzk)
+
+```cmd
+# Commands:
+# p, pick = use commit
+# d, drop = remove commit
+```
+
+以下為官方的說明
+
+```text
+To drop a commit, replace the command "pick" with "drop", or just delete the matching line.
+```
+
+這個就簡單多了，移除這個 commit ( 包含 commit 內容 )，
+
+假設我們的 log 如下，
+
+![alt tag](https://i.imgur.com/zz5arVp.png)
+
+這次的目標是移除 f0a761d 和 980bd9a 和 1539219 這些 commit，
+
+先執行以下指令
+
+```cmd
+git rebase -i 8f13aaa
+```
+
+將 pick 修改成 d 或 drop ( 如下圖 )
+
+![alt tag](https://i.imgur.com/Goc1LH1.png)
+
+按 ENTER 之後，再用 log 確認一下，
+
+![alt tag](https://i.imgur.com/u7z2Y3U.png)
+
+從上圖可以發現，我們已經成功的移除 f0a761d 和 980bd9a 和 1539219 這些 commit，
+
+並且也看到 commit 內容也都被移除了，只剩下 a.py 而已。
+
 ## git pull 補充
 
 既然介紹完了 `git fetch` 以及 `git rebase` 之後，接下來我要再補充一些 `git pull` 額外的 options 參數
