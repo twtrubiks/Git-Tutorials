@@ -441,6 +441,14 @@ git branch -D dev
 git push --set-upstream origin v1
 ```
 
+也可以使用
+
+```cmd
+git push -u origin v1
+```
+
+更多詳細說明可參考 [https://git-scm.com/docs/git-push#git-push--u](https://git-scm.com/docs/git-push#git-push--u)
+
 ![alt tag](https://i.imgur.com/1fuS2VY.jpg)
 
 接下來你可以到網頁上看 ( 這裡用 bitbucket 當作範例 ) ，你會發現有分支 v1 了
@@ -1192,6 +1200,28 @@ git show [<options>] [<object>…​]
 ![alt tag](https://i.imgur.com/JMJ48jO.png)
 
 其他更詳細的介紹，請參考 [https://git-scm.com/docs/git-diff](https://git-scm.com/docs/git-diff)
+
+## git grep
+
+以下為官方說明
+
+```text
+git-grep - Print lines matching a pattern
+```
+
+簡單說，就是可以幫你找出符合的 pattern，舉個例子，我希望找出內容
+
+有包含 hello 這個 pattern 的檔案，這時候，就可以執行以下指令
+
+```cmd
+git grep "hello"
+```
+
+![alt tag](https://i.imgur.com/t5vxvvp.png)
+
+會顯示出該 pattern 在個檔案以及哪段程式碼有用到。
+
+其他更詳細的介紹，請參考 [https://git-scm.com/docs/git-grep](https://git-scm.com/docs/git-grep)
 
 ## git 其他設定
 
