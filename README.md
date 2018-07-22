@@ -1171,6 +1171,28 @@ git show [<options>] [<object>…​]
 
 其他更詳細的介紹，請參考 [https://git-scm.com/docs/git-show](https://git-scm.com/docs/git-show)
 
+## git diff
+
+以下為官方說明
+
+```text
+ Show changes between commits, commit and working tree, etc
+```
+
+這邊舉幾個例子，
+
+檔案還沒進入暫存區 ( Stage )，也就是執行 git add xxx 之前，
+
+可以看做了那些修改，
+
+![alt tag](https://i.imgur.com/nj5Gz5P.png)
+
+也可以看 commits 之間的差異
+
+![alt tag](https://i.imgur.com/JMJ48jO.png)
+
+其他更詳細的介紹，請參考 [https://git-scm.com/docs/git-diff](https://git-scm.com/docs/git-diff)
+
 ## git 其他設定
 
 我們已經設定了 user.name 以及 user.email ，但 Git 上其實還有很多可設定的東西
