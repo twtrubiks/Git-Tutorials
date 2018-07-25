@@ -692,6 +692,22 @@ A 的部份就是我們要修改的目標，B 的部分就是說明 ( 前面貼�
 
 簡單來說，就是目前 commit id 之後的 commit id 都會改變 ( 有點繞口 :sweat_smile: )
 
+這邊補充一下，只要你用了 rebase，就會看到類似下面的圖，
+
+![alt tag](https://i.imgur.com/iiDf44q.png)
+
+origin/master 就是指遠端 ( romote ) 的 repo，它是和你說你現在的 repo 已經和 origin/master
+
+不一樣了，所以，這時候你如果要 push，請使用 `git push --force-with-lease`。
+
+這邊可能有人會問，如果我希望修改第一個 commit 該怎麼辦 :question:
+
+這時候可以使用，
+
+```cmd
+git rebase -i --root
+```
+
 ### edit
 
 [Youtube Tutorial - git rebase interactive - edit - PART 2](https://youtu.be/TCKjQppHxxQ)
