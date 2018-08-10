@@ -355,9 +355,9 @@ git checkout -- hello.py
 
 ## 新建與 合併 ( merge ) 分支 branch
 
-再說明 分支 branch 之前，先給大家一個觀念。
+在說明分支 branch 之前，先給大家一個觀念。
 
-通常再開發的時候，大家都是從 **master** 做一個 分支 branch 出去，最後再 **merge** 回 master，
+通常開發的時候，大家都是從 **master** 做一個分支 branch 出去，最後再 **merge** 回 master，
 
 為什麼要這麼做呢 ?  因為要確保大家都是使用最新的 **master**
 
