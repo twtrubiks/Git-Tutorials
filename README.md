@@ -1019,6 +1019,113 @@ git pull --rebase = git fetch + git rebase
 
 直接執行 `git rebase --abort` 即可回到之前的狀態。
 
+## git-cherry-pick
+
+看影片會更清楚，手把手帶大家動手做 [Youtube Tutorial - git-cherry-pick](https://youtu.be/x3UtKUvlDdI)
+
+git-cherry-pick 這個指令大家可能會比較陌生:confused:
+
+沒關係，我們先來看 [官方](https://git-scm.com/docs/git-cherry-pick) 的說明
+
+```text
+git-cherry-pick - Apply the changes introduced by some existing commits
+```
+
+看完官方說明還是:question::question::question:
+
+沒關係，我來假設一個情境 ( 理解完它你就了解了 git-cherry-pick 的用途了 )，
+
+假設現在 master 分支的 log 如下圖
+
+![alt tag](https://i.imgur.com/cMcn6yE.png)
+
+然後有一個 v1 的分支 log 如下圖
+
+![alt tag](https://i.imgur.com/OZ7JLke.png)
+
+現在我希望 merge v1 分支中的 14dee93 - add d.py 這個 commit
+
+( 因為 14dee93 這個 commit 實在太棒了或是因為某些原因只需要這個 commit )
+
+遇到上述這種情況，就很適合使用 git-cherry-pick，也就是說我想要其他分支中的某幾個 commit 而已，
+
+不需要全部，換句話說，就是撿其他分支中的 commit 過來使用。
+
+了解了適合的使用情境，接下來我們就來實戰:smirk:
+
+首先，我想要 v1 分支中的 14dee93 - add d.py 這個 commit，
+
+所以我先切到 master 分支，接著執行
+
+```cmd
+git cherry-pick 14dee93
+```
+
+如果你想要一次撿很多的分支過來也是可以，直接使用空白隔開即可
+
+```cmd
+git cherry-pick 14dee93 xxxxxx xxxxxx xxxxxx xxxxx
+```
+
+如果沒有衝突，就會看到如下圖
+
+![alt tag](https://i.imgur.com/YITXxMk.png)
+
+再觀看一下 master 的 log
+
+![alt tag](https://i.imgur.com/iGEIDZL.png)
+
+你會發現我們成功把 v1 分支中的 14dee93 - add d.py 這個 commit 拿過來
+
+使用了，但現在它的 commit id 卻是 ab70429，這個是正常的，因為它需要
+
+重新新計算:smile:
+
+其實，你會發現 git-cherry-pick 沒有想像中的困難:satisfied:
+
+在 cherry-pick 時，難免會遇到衝突，這邊我就再多做一個衝突的範例，
+
+假設 master 的 log 如下
+
+![alt tag](https://i.imgur.com/pttbQ5U.png)
+
+v1 分支中的 log 如下，我想要它的 3a2f29a - add c.py and print world 這個 commit
+
+![alt tag](https://i.imgur.com/RFibHS6.png)
+
+v2 分支中的 log 如下，我想要它的  553587b - add f.py這個 commit
+
+![alt tag](https://i.imgur.com/I6L2Fwq.png)
+
+接下來我們就切回 master，然後 cherry-pick 這兩個 commit，
+
+這時候你會發現，它衝突了:fearful:
+
+![alt tag](https://i.imgur.com/fAtQET0.png)
+
+使用 `git status` 看一下狀態，其實 A 的部分都教你如何解衝突了
+
+![alt tag](https://i.imgur.com/J8ZpPng.png)
+
+首先，我們先將 c.py 修正後，執行 `git add c.py`，接著再按照 A 的部份
+
+執行 `git cherry-pick --continue`，就時候會跳出一個編輯視窗，
+
+![alt tag](https://i.imgur.com/giylVAL.png)
+
+輸入完 commit message 之後，再輸入 `wq`，就會看到下圖
+
+![alt tag](https://i.imgur.com/rA8wMbO.png)
+
+最後，再觀看 log，
+
+![alt tag](https://i.imgur.com/lEP648c.png)
+
+我們成功將我們要的 commit merge 到我們的 master 分支上了:kissing_smiling_eyes:
+
+想了解更多的使用方法，可參考官方文件
+[https://git-scm.com/docs/git-cherry-pick](https://git-scm.com/docs/git-cherry-pick)。
+
 ## git revert
 
 假設我 commit history 為 A1 -> A2 -> A3 -> A4 -> A5 -> A6
