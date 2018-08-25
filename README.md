@@ -1487,6 +1487,14 @@ P.S 設定檔在資料夾底下的隱藏檔 ".git" 底下，裡面有一個 conf
 
 [Multiple SSH Keys settings for different github account](https://github.com/twtrubiks/Git-Tutorials/blob/master/Multiple_SSH_Keys_settings.md)
 
+## Git-Flow  基本教學以及概念
+
+* [Git-Flow Tutorials - youtube](https://youtu.be/zXlta66thZY)
+
+* [Git-Flow SmartGit Tutorials - youtube](https://youtu.be/ualXHytifbg)
+
+[Git-Flow  基本教學以及概念](https://github.com/twtrubiks/Git-Tutorials/tree/master/Git-Flow)
+
 ## Reference
 
 * [13 Git tips for Git's 13th birthday](https://opensource.com/article/18/4/git-tips)
