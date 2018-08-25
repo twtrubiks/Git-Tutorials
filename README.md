@@ -1346,6 +1346,20 @@ git grep "hello"
 
 其他更詳細的介紹，請參考 [https://git-scm.com/docs/git-grep](https://git-scm.com/docs/git-grep)
 
+## git Submodule
+
+由於這個內容稍微比較多，所以我另外寫了一篇，
+
+* [Youtube Tutorial PART 1 - git Submodule tutorial - how create submodule](https://youtu.be/IDMWLJCbCGo)
+
+* [Youtube Tutorial PART 2 - git Submodule tutorial - how update submodule](https://youtu.be/ogZoZOVyAYI)
+
+* [Youtube Tutorial PART 3 - git Submodule tutorial - how clone submodule](https://youtu.be/f5_O5Iu6pJo)
+
+* [Youtube Tutorial PART 4 - git Submodule tutorial - how remove submodule](https://youtu.be/imndFN7AvFA)
+
+[git Submodule tutorial :memo:](https://github.com/twtrubiks/Git-Tutorials/blob/master/git_submodule_turorial.md)
+
 ## git 其他設定
 
 我們已經設定了 user.name 以及 user.email ，但 Git 上其實還有很多可設定的東西
