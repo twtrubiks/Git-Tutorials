@@ -1,6 +1,6 @@
 # git Submodule tutorial :memo:
 
-手把手帶大家動手做 [Youtube Tutorial PART 1 - git Submodule tutorial - how create submodule](https://youtu.be/IDMWLJCbCGo)，
+手把手帶大家動手做 [Youtube Tutorial PART 1 - git Submodule tutorial - how to create submodule](https://youtu.be/IDMWLJCbCGo)，
 
 git Submodule 的官方文件可參考 [git-submodule](https://git-scm.com/docs/git-submodule/)。
 
@@ -44,9 +44,9 @@ git Submodule 的官方文件可參考 [git-submodule](https://git-scm.com/docs/
 
 既然了解了使用情境，那我們就來看看它該怎麼使用:satisfied:
 
-## how create submodule
+## how to create submodule
 
-手把手帶大家動手做 [Youtube Tutorial PART 1 - git Submodule tutorial - how create submodule](https://youtu.be/IDMWLJCbCGo)，
+手把手帶大家動手做 [Youtube Tutorial PART 1 - git Submodule tutorial - how to create submodule](https://youtu.be/IDMWLJCbCGo)，
 
 先介紹一下 repo ，這邊有兩個 repo，分別為 main_project repo 以及 a_project repo，
 
@@ -129,9 +129,9 @@ push 之後，可以到 github 網頁上看，
 
 學習完了如何建立 Submodule，接下來來看看如何更新 Submodule。
 
-## how update submodule
+## how to update submodule
 
-手把手帶大家動手做 [Youtube Tutorial PART 2 - git Submodule tutorial - how update submodule](https://youtu.be/ogZoZOVyAYI)，
+手把手帶大家動手做 [Youtube Tutorial PART 2 - git Submodule tutorial - how to update submodule](https://youtu.be/ogZoZOVyAYI)，
 
 假設 a_project repo 也是我們自己維護的，當我們對它更新時，會發生什麼事情:question:
 
@@ -237,9 +237,9 @@ the current branch of the submodule will be rebased onto the commit recorded in 
 
 這種作法更方便，也解決了 **HEAD detached** 的問題 :thumbsup:
 
-## how clone submodule
+## how to clone submodule
 
-手把手帶大家動手做 [Youtube Tutorial PART 3 - git Submodule tutorial - how clone submodule](https://youtu.be/f5_O5Iu6pJo)，
+手把手帶大家動手做 [Youtube Tutorial PART 3 - git Submodule tutorial - how to clone submodule](https://youtu.be/f5_O5Iu6pJo)，
 
 這邊教大家如何 clone Submodule 的專案，執行一般的 clone 指令，
 
@@ -311,9 +311,9 @@ git clone --recurse-submodules git@github.com:blue-rubiks/main_project.git
 
 但通常我們應該是不會一開始就知道這個專案有包含 submodule。
 
-### how remove submodule
+### how to remove submodule
 
-手把手帶大家動手做 [Youtube Tutorial PART 4 - git Submodule tutorial - how remove submodule](https://youtu.be/imndFN7AvFA)，
+手把手帶大家動手做 [Youtube Tutorial PART 4 - git Submodule tutorial - how to remove submodule](https://youtu.be/imndFN7AvFA)，
 
 要移除 submodule 的步驟比較多，這邊教大家如何移除，
 

@@ -1350,13 +1350,13 @@ git grep "hello"
 
 由於這個內容稍微比較多，所以我另外寫了一篇，
 
-* [Youtube Tutorial PART 1 - git Submodule tutorial - how create submodule](https://youtu.be/IDMWLJCbCGo)
+* [Youtube Tutorial PART 1 - git Submodule tutorial - how to create submodule](https://youtu.be/IDMWLJCbCGo)
 
-* [Youtube Tutorial PART 2 - git Submodule tutorial - how update submodule](https://youtu.be/ogZoZOVyAYI)
+* [Youtube Tutorial PART 2 - git Submodule tutorial - how to update submodule](https://youtu.be/ogZoZOVyAYI)
 
-* [Youtube Tutorial PART 3 - git Submodule tutorial - how clone submodule](https://youtu.be/f5_O5Iu6pJo)
+* [Youtube Tutorial PART 3 - git Submodule tutorial - how to clone submodule](https://youtu.be/f5_O5Iu6pJo)
 
-* [Youtube Tutorial PART 4 - git Submodule tutorial - how remove submodule](https://youtu.be/imndFN7AvFA)
+* [Youtube Tutorial PART 4 - git Submodule tutorial - how to remove submodule](https://youtu.be/imndFN7AvFA)
 
 [git Submodule tutorial :memo:](https://github.com/twtrubiks/Git-Tutorials/blob/master/git_submodule_turorial.md)
 
