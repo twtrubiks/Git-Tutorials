@@ -1360,6 +1360,18 @@ git grep "hello"
 
 [git Submodule tutorial :memo:](https://github.com/twtrubiks/Git-Tutorials/blob/master/git_submodule_turorial.md)
 
+## git Subtree
+
+由於這個內容稍微比較多，所以我另外寫了一篇，
+
+* [Youtube Tutorial PART 1 - git subtree tutorial - how to create subtree](https://youtu.be/kEvgK2gH_vg)
+
+* [Youtube Tutorial PART 2 - git subtree tutorial - how to push subtree](https://youtu.be/Df3zc1VOqN8)
+
+* [Youtube Tutorial PART 3 - git subtree tutorial - how to pull/create subtree](https://youtu.be/dE-D2yrD4ws)
+
+[git subtree tutorial :memo:](https://github.com/twtrubiks/Git-Tutorials/blob/master/git_subtree_turorial.md)
+
 ## git 其他設定
 
 我們已經設定了 user.name 以及 user.email ，但 Git 上其實還有很多可設定的東西
