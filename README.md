@@ -421,6 +421,26 @@ git branch -d dev
 git branch -D dev
 ```
 
+補充，git branch 也可以修改名稱，而且 commit id 是不會改變的，使用方法也很簡單，
+
+可參考 git-branch [文件](https://git-scm.com/docs/git-branch#git-branch--m)，使用方法如下，
+
+```text
+git branch -m <name>
+```
+
+原本的 b1 branch 分支的 log 如下，
+
+![alt tag](https://i.imgur.com/b1K1EUy.png)
+
+現在將 b1 branch 修改成 b2 branch，
+
+![alt tag](https://i.imgur.com/Twz5kRm.png)
+
+如果你仔細和剛剛的 log 比較，你會發現 log 的 commit id 是不會改變的，
+
+![alt tag](https://i.imgur.com/qMjqV3Z.png)
+
 ## 新建分支 branch 並 push
 
 相信大家有時候在 github 上面都會看到，如下圖，很多分支
@@ -1473,6 +1493,8 @@ git remote -v
 
 ![alt tag](https://i.imgur.com/Qb5VHoP.png)
 
+git remote 這個指令的更多說明可參考官方文件 [git-remote](https://git-scm.com/docs/git-remote)。
+
 接著我們使用下列指令新增一個 origin 的遠端
 
 ```cmd
@@ -1506,6 +1528,60 @@ git remote set-url --add origin git@github.com:twtrubiks/test2.git
 P.S 設定檔在資料夾底下的隱藏檔 ".git" 底下，裡面有一個 config
 
 ![alt tag](https://i.imgur.com/41xb8eu.png)
+
+補充幾個 git remote 的指令，他也支援 rename 以及 remove ，
+
+現在的 remote 如下，
+
+![alt tag](https://i.imgur.com/rr9SE3g.png)
+
+讓我們重新命名 remote，語法如下，
+
+```text
+git remote rename <old> <new>
+```
+
+```text
+git remote rename origin2 origin
+```
+
+執行後，你會發現 remote 成功被修改成 origin 了，
+
+![alt tag](https://i.imgur.com/ixP1H7Z.png)
+
+接下來我們試試 remove，語法如下，
+
+```text
+git remote remove <name>
+```
+
+```text
+git remote remove origin
+```
+
+成功刪除，現在 remote 是空的了，
+
+![alt tag](https://i.imgur.com/OQFRWDg.png)
+
+接下來我們嘗試新增一個 remote，指令如下，
+
+```text
+git remote add [-t <branch>] [-m <master>] [-f] [--[no-]tags] [--mirror=<fetch|push>] <name> <url>
+```
+
+```cmd
+git remote add origin git@github.com:blue-rubiks/t11.git
+```
+
+![alt tag](https://i.imgur.com/cKsiBBs.png)
+
+如果我們想修改 origin 的 url，可以使用
+
+```cmd
+git remote set-url origin git@blue.github.com:blue-rubiks/t11.git
+```
+
+![alt tag](https://i.imgur.com/LJICTNM.png)
 
 ## Multiple SSH Keys settings for different github account
 
