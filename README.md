@@ -64,6 +64,103 @@ git clone git@github.com:twtrubiks/test.git
 如圖 ( 下載成功 )，在你的下載路徑下就會多出一個資料夾
 ![alt tag](https://i.imgur.com/iIkTlqf.jpg)
 
+### 如何改善(加速)大型 repo git clone 速度
+
+* [Youtube Tutorial - 如何改善(加速)大型 repo git clone 速度](https://youtu.be/YHX0qkQa1UI)
+
+有時候我們會需要 clone 很大的 repo，執行 `git clone` 都需要很長的時間，是不是有方法可以
+
+加速 clone 的速度呢 :question:
+
+直接開始動手嘗試 ( 使用 [django](https://github.com/django/django) 當範例 )，
+
+`git clone git@github.com:django/django.git`
+
+( 你會發現 clone 需要一些時間 :triumph:)
+
+![alt tag](https://i.imgur.com/yMH6L8F.png)
+
+接著查看 log，`git log`
+
+![alt tag](https://i.imgur.com/vJkFTr2.png)
+
+嘗試切換 branch `git checkout stable/2.2.x`
+
+![alt tag](https://i.imgur.com/UtxJ2ER.png)
+
+開始改善(加速) clone 的時間，
+
+可以透過 `--depth` 這個參數來完成，簡單說明一下他的功能，當我們一般執行 clone 之後，
+
+接著執行 `git log` 你會發現有大量的 log，在某修情況下，你可能不需要那麼多的 log，
+
+也就是說你可能只需要最近 10 筆的 history commit，甚至你只需要 1 筆 ( 也就是根本不需要
+
+history commit )，這時候就很適合使用 `--depth`。
+
+`git clone git@github.com:django/django.git --depth 1`
+
+( 你會發現這次快很多了 )
+
+![alt tag](https://i.imgur.com/yvkZUZI.png)
+
+接著查看 log，`git log`
+
+( 會變快的原因是因為我們只保留最新的一筆 history commit ，
+
+如果你需要最近 10 筆，改成 --depth 10 即可 )
+
+![alt tag](https://i.imgur.com/at9Zzq3.png)
+
+但是會有一個問題，當嘗試切換 branch `git checkout stable/2.2.x`
+
+( 你會發現你無法切換 remote branch :scream:
+
+原因是因為使用 `--depth` 相當於是 `--single-branch`，
+
+所以當然沒有其他的 branch。 )
+
+![alt tag](https://i.imgur.com/gDaeq1W.png)
+
+也就是說以下兩條指令其實是相等的
+
+```cmd
+git clone git@github.com:django/django.git --depth 1
+git clone git@github.com:django/django.git --depth 1 --single-branch
+```
+
+為了解決這個問題，比較好的做好應該是這樣
+
+```cmd
+git clone git@github.com:django/django.git --depth 1 --no-single-branch
+```
+
+( 這個和 `--single-branch` 比會稍微久一點點，因為每個 branch 的最新一個 history commit 都要 clone 下來 )
+
+這樣的話，就可以保留 remote 的 branch 了，
+
+![alt tag](https://i.imgur.com/BkLKVZz.png)
+
+成功切換 remote 的 branch， `git checkout stable/2.2.x`。
+
+![alt tag](https://i.imgur.com/VCvcSTr.png)
+
+最後稍微整理，
+
+如要 clone 最近一次的 history，而且也需要其他 branch，使用如下，
+
+`git clone git@github.com:django/django.git --depth 1 --no-single-branch`
+
+如要 clone 最近一次的 history，而且**不需要**其他 branch，使用如下，
+
+`git clone git@github.com:django/django.git --depth 1 --single-branch`
+
+or
+
+`git clone git@github.com:django/django.git --depth 1`
+
+更多詳細參數說明請參考 [git clone](https://git-scm.com/docs/git-clone)
+
 ## git status 指令
 
 ```cmd
