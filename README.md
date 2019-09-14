@@ -538,6 +538,18 @@ git branch -m <name>
 
 ![alt tag](https://i.imgur.com/qMjqV3Z.png)
 
+## 使用特定 commit id 建立 branch
+
+有時候我們會想測試某個 commit 的狀態, 這時候可以直接利用 commit id 去建立一個 branch,
+
+方法如下,
+
+```cmd
+git checkout -b new_branch <commit id>
+```
+
+這樣就會依照你指定的 commit id 去建立出一個 branch.
+
 ## 新建分支 branch 並 push
 
 相信大家有時候在 github 上面都會看到，如下圖，很多分支
@@ -1693,6 +1705,50 @@ git remote set-url origin git@blue.github.com:blue-rubiks/t11.git
 * [Git-Flow SmartGit Tutorials - youtube](https://youtu.be/ualXHytifbg)
 
 [Git-Flow  基本教學以及概念](https://github.com/twtrubiks/Git-Tutorials/tree/master/Git-Flow)
+
+## Linux 注意事項
+
+這邊是和大家說一些同時在 windows 以及 linux 底下使用 git 可能會遇到的問題.
+
+首先, 在 linux 底下執行以下指令
+
+```cmd
+sudo chmod -R 777 folder
+```
+
+git 會默認它為改變, 要怎麼把它忽略呢 ? 請執行以下指令 ,
+
+```cmd
+git config core.fileMode false
+```
+
+也可參考這篇文章 [Git ignore file mode (chmod) changes](https://stackoverflow.com/questions/1580596/how-do-i-make-git-ignore-file-mode-chmod-changes)
+
+### 格式化
+
+`core.autocrlf`
+
+Windows 使用 Enter (Carriage Return 簡寫為 CR) 和 換行(Line Feed 簡寫為 LF) 這兩個字元來定義換行,
+
+而 Mac 和 Linux 只使用一個換行 (Line Feed 簡寫為 LF) 字元.
+
+所以會導致跨平台協作時出問題.
+
+在 windows 上可以這樣設定 ( 代表 LF 會被轉換成 CRLF)
+
+```cmd
+git config --global core.autocrlf true
+```
+
+Linux 或 Mac 系統
+
+```cmd
+git config --global core.autocrlf input
+```
+
+以上這樣設定, 會在 Windows 上保留 CRLF，而在 Mac 和 Linux 以及 repo 中保留 LF.
+
+如果你想更深入的了解, 可參考 [格式化-core.autocrlf](https://git-scm.com/book/zh-tw/v1/Git-客製化-Git-設定#格式化與空格).
 
 ## Reference
 
