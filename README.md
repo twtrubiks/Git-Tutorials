@@ -1525,6 +1525,52 @@ git grep "hello"
 
 ![alt tag](https://i.imgur.com/W3cxk9r.jpg)
 
+### .gitignore (Temporarily and Permanently)
+
+主要分 暫時(Temporarily) 和 永久(Permanently) 的ignore，
+
+* Temporarily ignore
+
+適合使用在 settings 的檔案，有時候我們在開發的時候，都會有自己的設定，
+
+但這個設定未必是大家都需要的，這時候就可以暫時先忽略這個檔案的改變。
+
+暫時忽略某個檔案
+
+```cmd
+git update-index --skip-worktree <file>
+```
+
+恢復(Resume)暫時忽略某個檔案
+
+```cmd
+git update-index --no-skip-worktree <file>
+```
+
+* Permanently ignore
+
+這邊補充一個情境，假設今天 file 這個檔案已經被 commit 到 git 中了，
+
+但是我想把他加入 .gitignore，這樣該怎麼辦:question:
+
+如果你在 .gitignore 中加入 file，你會發現還是沒有被 ignore:confused:
+
+![alt tag](https://i.imgur.com/o922paa.png)
+
+這時候，正確的做法應該是要先執行已下指令，
+
+```cmd
+git rm --cached <file>
+```
+
+執行完後再 commit 即可 ( 檔案不會從系統上刪除，只是要更新 git 的 index 而已 )
+
+![alt tag](https://i.imgur.com/RJZ08OQ.png)
+
+這時候可以再嘗試更新 file 的內容，你會發現它成功被 ignore 了:smile:
+
+### git alias
+
 有時候常常手殘 key 錯指令或是記不起來
 
 如果我們打 git st 就表示 git status 那該有多棒!!!
