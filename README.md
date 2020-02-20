@@ -431,7 +431,7 @@ git reset --hard 201f40604ec3b6fa8
 
 ## 刪除
 
-有兩種況狀，一種是確定要從版本庫中刪除該檔案，那就用命令 git rm 刪掉，並且 git commit：
+有兩種狀況，一種是確定要從版本庫中刪除該檔案，那就用命令 git rm 刪掉，並且 git commit：
 
 ```cmd
 rm hello.py
@@ -441,7 +441,7 @@ git commit -m "remove hello.py"
 
 ![alt tag](https://i.imgur.com/sLMTDX7.jpg)
 
-另一種況狀是刪錯了，使用 git checkout 可以輕鬆還原檔案:
+另一種狀況是刪錯了，使用 git checkout 可以輕鬆還原檔案:
 
 ```cmd
 rm hello.py
