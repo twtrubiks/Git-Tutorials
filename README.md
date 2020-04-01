@@ -431,7 +431,7 @@ git reset --hard 201f40604ec3b6fa8
 
 ## 刪除
 
-有兩種況狀，一種是確定要從版本庫中刪除該檔案，那就用命令 git rm 刪掉，並且 git commit：
+有兩種狀況，一種是確定要從版本庫中刪除該檔案，那就用命令 git rm 刪掉，並且 git commit：
 
 ```cmd
 rm hello.py
@@ -441,7 +441,7 @@ git commit -m "remove hello.py"
 
 ![alt tag](https://i.imgur.com/sLMTDX7.jpg)
 
-另一種況狀是刪錯了，使用 git checkout 可以輕鬆還原檔案:
+另一種狀況是刪錯了，使用 git checkout 可以輕鬆還原檔案:
 
 ```cmd
 rm hello.py
@@ -1754,6 +1754,8 @@ git remote set-url origin git@blue.github.com:blue-rubiks/t11.git
 
 ## Linux 注意事項
 
+* [Youtube Tutorial - Linux 教學 - git 乎略 file mode (chmod) 改變](https://youtu.be/QCh2k903Yak)
+
 這邊是和大家說一些同時在 windows 以及 linux 底下使用 git 可能會遇到的問題.
 
 首先, 在 linux 底下執行以下指令
@@ -1804,6 +1806,18 @@ git config --global core.autocrlf input
 
 文章都是我自己研究內化後原創，如果有幫助到您，也想鼓勵我的話，歡迎請我喝一杯咖啡:laughing:
 
+綠界科技ECPAY ( 不需註冊會員 )
+
+![alt tag](https://payment.ecpay.com.tw/Upload/QRCode/201906/QRCode_672351b8-5ab3-42dd-9c7c-c24c3e6a10a0.png)
+
+[贊助者付款](http://bit.ly/2F7Jrha)
+
+歐付寶 ( 需註冊會員 )
+
 ![alt tag](https://i.imgur.com/LRct9xa.png)
 
 [贊助者付款](https://payment.opay.tw/Broadcaster/Donate/9E47FDEF85ABE383A0F5FC6A218606F8)
+
+## 贊助名單
+
+[贊助名單](https://github.com/twtrubiks/Thank-you-for-donate)
