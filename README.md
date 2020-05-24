@@ -504,7 +504,7 @@ git merge bug1 指令用於合併 ( bug1分支 ) 指定分支到目前分支 ( m
 
 當然不是每次合併都能很順利的出現 Fast-forward，很多時候會出現衝突 CONFLICT 。
 
-如果順利合併 ( merge ) 完成後，就可以刪除 bug1 分支：
+如果順利合併 ( merge ) 完成後，就可以刪除 (本機) bug1 分支：
 
 ```cmd
 git branch -d dev
@@ -512,10 +512,16 @@ git branch -d dev
 
 ![alt tag](https://i.imgur.com/LmKKWxR.jpg)
 
-如果要丟掉一個沒有被合併過的分支，可以使用 git branch -D 分支名稱  強行刪除。
+如果要丟掉一個沒有被合併過的分支，可以使用 git branch -D 分支名稱  強行刪除 (本機)。
 
 ```cmd
 git branch -D dev
+```
+
+那如果今天要刪除 remote 端的 branch 該怎麼辦呢:question:
+
+```cmd
+git push origin --delete {remote_branch}
 ```
 
 補充，git branch 也可以修改名稱，而且 commit id 是不會改變的，使用方法也很簡單，
