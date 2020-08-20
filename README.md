@@ -616,6 +616,29 @@ git pull
 
 如果有衝突，要先解衝突。
 
+這邊補充一下 `-C` 這個參數的意思, 它的意思代表指定 folder 路徑,
+
+有時候我們可能不想先 `cd` 進去資料夾, 再進行 pull, 這時候,
+
+就很適合使用它:smile:
+
+```cmd
+git [-C <path>] pull
+```
+
+舉例,
+
+```cmd
+cd git_folder
+git pull
+```
+
+可以直接簡化為
+
+```cmd
+git -C git_folder pull
+```
+
 ## git fetch
 
 可以先簡單想成 **git pull = git fetch + git merge**
@@ -1803,6 +1826,12 @@ git config --global core.autocrlf input
 以上這樣設定, 會在 Windows 上保留 CRLF，而在 Mac 和 Linux 以及 repo 中保留 LF.
 
 如果你想更深入的了解, 可參考 [格式化-core.autocrlf](https://git-scm.com/book/zh-tw/v1/Git-客製化-Git-設定#格式化與空格).
+
+### 修改 editor
+
+```cmd
+git config --global core.editor "vim"
+```
 
 ## Reference
 
