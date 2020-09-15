@@ -520,6 +520,8 @@ git branch -D dev
 
 那如果今天要刪除 remote 端的 branch 該怎麼辦呢:question:
 
+* [Youtube Tutorial - git 刪除查看遠端的分支 branch](https://youtu.be/0JQrT7nfm_c)
+
 ```cmd
 git push origin --delete {remote_branch}
 ```
@@ -598,6 +600,12 @@ git push -u origin v1
 git branch -r
 ```
 
+```cmd
+git branch --remote
+```
+
+`--remote` 或 `-r` 都可以.
+
 假設遠端有一個名稱為 develop 的分支，
 
 我們只要 checkout 到該分支底下就可以了
@@ -652,6 +660,22 @@ git -C git_folder pull
 ![alt tag](https://i.imgur.com/8FGuA75.png)
 
 這樣是不是清楚多了!!!
+
+多補充一個參數 `--prune`,
+
+* [Youtube Tutorial - git fetch 指令 prune 參數說明](https://youtu.be/ZMpMv1P1Q1Q)
+
+這個主要的功能是刪除 remote 無效的 branch,
+
+有時候明明已經把遠端的 branch 刪除, 但是你執行 `git branch --remote`,
+
+卻會發現你還看的到那些 branch 的分支 (但明明網頁上的分支已經被移除了:sweat:)
+
+常常會發生在 pull 端(非工作端)的機器 (如果不懂這句話的意思建議看影片說明:smile:)
+
+這時候就可以同步一下本機和遠端的分支, 使用以下的指令
+
+`git fetch --prune`
 
 ## git rebase
 
@@ -960,7 +984,7 @@ git rebase -i f0a761d
 
 ![alt tag](https://i.imgur.com/rgWkvVp.png)
 
-( 如果你要合併多個，就多個都改成 s 或 squash )
+( 如果你要合併多個 commit，就多個都改成 s 或 squash, 注意, 有順序性:exclamation::exclamation: )
 
 將著按下 ENTER，會看到下圖
 
