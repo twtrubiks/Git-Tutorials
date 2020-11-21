@@ -1201,6 +1201,33 @@ git pull --rebase = git fetch + git rebase
 
 直接執行 `git rebase --abort` 即可回到之前的狀態。
 
+額外補充小技巧,
+
+* [Youtube Tutorial - git autostash 參數說明](https://youtu.be/kg2PyZr7l5k)
+
+說明 `--autostash`,
+
+一般來說, 如果我們工作到一半, 突然想要直接 `git pull --rebase`, 又不想 commit,
+
+流程大約會像下面這樣
+
+```cmd
+git stash # 將目前的改動存進去 stash 中
+git pull --rebase
+git stash pop # 將之前的改動從 stash 中 pop 出來
+# 如果有衝突再去解決衝突
+```
+
+但如果每次都要執行這麼多指令其實會有點煩:sweat:
+
+但可以透過一個參數來解決, 也就是
+
+`git pull --rebase --autostash`
+
+以上這段指令基本上就是幫你執行了剛剛上面那一串的東西,
+
+如果有衝突, 就再修正衝突即可:smile:
+
 ## git-cherry-pick
 
 看影片會更清楚，手把手帶大家動手做 [Youtube Tutorial - git-cherry-pick](https://youtu.be/x3UtKUvlDdI)
@@ -1381,6 +1408,8 @@ git reset --hard HEAD
 
 ## git stash 指令
 
+* [Youtube Tutorial - git stash 指令](https://youtu.be/CN065MNHtMY)
+
 很多時候，我們正在開發一個新功能又或是 debug，然後突然有一個功能需要緊急修正，
 
 但你又不想 commit 現在的狀況，因為根本沒意義，事情只做了一半，這時候 **stash**
@@ -1391,7 +1420,10 @@ git reset --hard HEAD
 
 ![alt tag](https://i.imgur.com/7xX0T1T.jpg)
 
-然後，現在突然有一個bug必須馬上 ( 立刻 ) 處理，但是，啊我手上的事情還沒做完阿~~~~
+然後，現在突然有一個 bug 必須馬上(立刻)處理，
+
+但是，啊我手上的事情還沒做完阿~~~~
+
 這時候，可以利用以下指令
 
 ```cmd
@@ -1403,13 +1435,21 @@ git stash
 假如你想要更清楚自己這次的 stash 原因是什麼，或是這是正在開發什麼功能
 可以使用以下指令
 
+範例
+
 ```cmd
-git stash save -u "我是註解"
+git stash save "我是註解"
 ```
 
 ```cmd
 git stash save -u "feature"
 ```
+
+參數說明
+
+`-u` | `--include-untracked`
+
+`-a` | `--all`
 
 ![alt tag](https://i.imgur.com/nGS11Px.jpg)
 
@@ -1432,9 +1472,10 @@ git stash list
 git stash pop
 ```
 
-假設今天你有很多的 stash，你可以指定，如下
+假設今天你有很多的 stash，你可以指定，如下 (選自己喜歡的用法)
 
 ```cmd
+git stash pop 0
 git stash pop stash@{0}
 ```
 
@@ -1462,9 +1503,10 @@ git stash clear
 
 ![alt tag](https://i.imgur.com/PvzufbQ.jpg)
 
-如果你想丟棄指定的 stash，可以使用
+如果你想丟棄指定的 stash，可以使用 (選自己喜歡的用法)
 
 ```cmd
+git stash drop 0
 git stash drop stash@{0}
 ```
 
