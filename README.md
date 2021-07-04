@@ -1847,6 +1847,14 @@ git remote set-url origin git@blue.github.com:blue-rubiks/t11.git
 
 [Git-Flow  基本教學以及概念](https://github.com/twtrubiks/Git-Tutorials/tree/master/Git-Flow)
 
+## PR (Pull Request) 教學
+
+* [Youtube Tutorial - github PR (Pull Request) 教學](https://youtu.be/bXOdD-bKfkA) - [文章快速連結](https://github.com/twtrubiks/Git-Tutorials/tree/master/pr-tutorial#github-pr-pull-request-%E6%95%99%E5%AD%B8)
+
+* [Youtube Tutorial - github CLI PR 教學](https://youtu.be/AD8X11lq3gQ) - [文章快速連結](https://github.com/twtrubiks/Git-Tutorials/tree/master/pr-tutorial#github-cli-pr-%E6%95%99%E5%AD%B8)
+
+[PR (Pull Request) 教學](https://github.com/twtrubiks/Git-Tutorials/tree/master/pr-tutorial)
+
 ## Linux 注意事項
 
 * [Youtube Tutorial - Linux 教學 - git 乎略 file mode (chmod) 改變](https://youtu.be/QCh2k903Yak)
