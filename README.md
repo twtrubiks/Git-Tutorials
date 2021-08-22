@@ -407,7 +407,9 @@ git push --force-with-lease
 
 ## checkout
 
-git checkout -- file 可以丟棄工作區的修改：
+也請參考 [git switch](https://github.com/twtrubiks/Git-Tutorials#git-switch) 和 [git restore](https://github.com/twtrubiks/Git-Tutorials#git-restore).
+
+`git checkout -- file` 可以丟棄工作區的修改：
 
 ```cmd
 git checkout  -- hello.py
@@ -483,6 +485,12 @@ git checkout bug1 為切換到一個名稱為 bug1 的分支底下。
 
 ```cmd
 git checkout -b bug1
+```
+
+(這邊教大家一個小技巧, 以下這個指令可以快速切換上一個分支, 和 `cd -` 概念一樣:exclamation:)
+
+```cmd
+git checkout -
 ```
 
 我們在 bug1 分支上進行任何修改操作，
@@ -612,6 +620,94 @@ git branch --remote
 
 ```cmd
 git checkout develop
+```
+
+## git switch
+
+[Youtube Tutorial - git switch 和 git restore 教學](https://youtu.be/JL_bSOGDR-k)
+
+請先確認目前的 git 版本, 更新方法可參考 [git 更新](https://github.com/twtrubiks/Git-Tutorials#git-%E6%9B%B4%E6%96%B0).
+
+在 git 2.23 版本開始, 增加了 `git switch` 和 `git restore`, 這兩個指令主要是
+
+要更清楚的劃分功能, 主要是來代替 `git checkout`.
+
+你其實可以想成 `git checkout` = `git switch` + `git restore`.
+
+官方文件可參考 [git-switch](https://git-scm.com/docs/git-switch)
+
+```cmd
+git switch [<options>] (-c|-C) <new-branch> [<start-point>]
+```
+
+切換到一個已經存在的 branch (如果該 branch 不存在則指令無效)
+
+```cmd
+git switch <new-branch>
+```
+
+建立 new-branch 並且切換到 new-branch 分支
+
+```cmd
+git switch -c <new-branch>
+```
+
+`-c` `--create`
+
+`-C` `--force-create`
+
+依照 commit_id (或前 N 的 commit 點) 建立 new-branch 並且切換到 new-branch 分支
+
+```cmd
+git switch -c <new-branch> <commit_id>
+git switch -c <new-branch> HEAD~2
+```
+
+(這邊教大家一個小技巧, 以下這個指令可以快速切換上一個分支, 和 `cd -` 概念一樣:smile:)
+
+```cmd
+git switch -
+```
+
+## git restore
+
+[Youtube Tutorial - git switch 和 git restore 教學](https://youtu.be/JL_bSOGDR-k)
+
+請先確認目前的 git 版本, 更新方法可參考 [git 更新](https://github.com/twtrubiks/Git-Tutorials#git-%E6%9B%B4%E6%96%B0).
+
+在 git 2.23 版本開始, 增加了 `git switch` 和 `git restore`, 這兩個指令主要是
+
+要更清楚的劃分功能, 主要是來代替 `git checkout`.
+
+你其實可以想成 `git checkout` = `git switch` + `git restore`.
+
+官方文件可參考 [git-restore](https://git-scm.com/docs/git-restore)
+
+以下兩個指令是相同的.
+
+```cmd
+git checkout <file>
+git restore <file>
+```
+
+還原目前資料夾全部的檔案
+
+```cmd
+git restore .
+```
+
+還原目前資料夾底下結尾是 `*.py` 的全部檔案
+
+```cmd
+git restore '*.py'
+```
+
+如果你的 `git` 版本比較新, 你應該會發現這個指令你以前好像沒看過:smile:
+
+![alt tag](https://i.imgur.com/IHqfVrn.png)
+
+```cmd
+git restore --staged <file>
 ```
 
 ## git pull
@@ -1726,6 +1822,16 @@ git config alias.stu status
 ```cmd
 man git-config
 ```
+
+### git 更新
+
+```cmd
+sudo add-apt-repository ppa:git-core/ppa
+sudo apt-get update
+sudo apt-get install git
+```
+
+![alt tag](https://i.imgur.com/WrQNZln.png)
 
 ## 使用 Git 一次 Push 到多個不同的遠端 ( remote )
 
