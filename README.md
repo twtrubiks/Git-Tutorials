@@ -1606,6 +1606,108 @@ git stash drop 0
 git stash drop stash@{0}
 ```
 
+## git tag
+
+[Youtube Tutorial - git tag 教學](https://youtu.be/azciLlpr3Gs)
+
+查看 tag
+
+```cmd
+git tag
+```
+
+![alt tag](https://i.imgur.com/8f6zGfm.png)
+
+指定關鍵字
+
+```cmd
+git tag -l "v1.*"
+```
+
+`-l` `--list`
+
+git tag 有 輕量級標籤(lightweight tag) 和 附註標籤(annotated tag).
+
+輕量級標籤(lightweight tag)
+
+如果想要建立一個輕量級的標籤，請不要指定 `-a` `-s`(GPG-signed) `-m`
+
+```cmd
+git tag tag_name [commit_id]
+```
+
+如果只使用 `git tag tag_name` , 而沒加上後面 Commit id,
+
+則會自動把 tag 放在目前的這個 Commit id 上.
+
+顯示註解
+
+```cmd
+git show v1.1-light
+```
+
+附註標籤(annotated tag)
+
+```cmd
+git tag -a v1.1 -m "version 1.1"
+```
+
+`-a` 就是標籤名稱 `--annotate`
+
+`-m` 代表該標籤說明(註解)
+
+在指定的 commit 上設 tag
+
+```cmd
+git tag -a v1.2 -m "version 1.1" [commit_id]
+```
+
+顯示註解
+
+```cmd
+git show v1.1
+```
+
+輕量級標籤(lightweight tag) 和 附註標籤(annotated tag) 的差別就是是否能看到更多的細節,
+
+附註標籤(annotated tag) 多了更多的資訊.
+
+輕量級標籤(lightweight tag) 如下
+
+![alt tag](https://i.imgur.com/4cUkdyQ.png)
+
+附註標籤(annotated tag) 如下
+
+![alt tag](https://i.imgur.com/DQWB1uh.png)
+
+當你執行 `git push` 預設是不會將 tag 推到 remote.
+
+需要執行以下的指令, push tag 到 remote 端
+
+```cmd
+git push origin [tagname]
+```
+
+一次 push 很多 tags (將會把你全部不在 remote 端的 tag 都 push 上去.)
+
+```cmd
+git push origin --tags
+```
+
+當其他人執行 `git clone` 或 `git fetch` 就可以拿到這些 tags.
+
+移除本地 tag
+
+```cmd
+git tag -d [tagname]
+```
+
+刪除 remote tag
+
+```cmd
+git push --delete origin [tagname]
+```
+
 ## git show
 
 一般來說，我只用他來看這個 commit 修改了哪些東西
