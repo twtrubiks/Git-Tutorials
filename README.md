@@ -151,6 +151,10 @@ git clone git@github.com:django/django.git --depth 1 --no-single-branch
 
 `git clone git@github.com:django/django.git --depth 1 --no-single-branch`
 
+如果你想要指定分支, 加上 `-b`,
+
+`git clone git@github.com:django/django.git --depth 1 --no-single-branch -b stable/3.1.x`
+
 如要 clone 最近一次的 history，而且**不需要**其他 branch，使用如下，
 
 `git clone git@github.com:django/django.git --depth 1 --single-branch`
