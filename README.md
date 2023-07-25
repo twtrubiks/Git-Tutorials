@@ -4,7 +4,9 @@
 
 如果教學有誤再請糾正:sweat_smile:
 
-基本使用指令以及安裝可參考小弟之前拍的影片 [github基本教學 - 從無到有](https://www.youtube.com/watch?v=py3n6gF5Y00)
+基本使用指令以及安裝可參考小弟之前拍的影片
+
+* [Youtube Tutorial - github基本教學 - 從無到有](https://www.youtube.com/watch?v=py3n6gF5Y00)
 
 影片教學包含如何產生 **SSH key**
 
@@ -55,6 +57,8 @@ git init <directory>
 
 git clone ( 複製的網址 ) SSH / HTTPS
 
+( 如果你要使用 https 的方式, 請接著看 [Personal Access Tokens](https://github.com/twtrubiks/Git-Tutorials#personal-access-tokens) )
+
 ```cmd
 git clone git@github.com:twtrubiks/test.git
 ```
@@ -62,7 +66,48 @@ git clone git@github.com:twtrubiks/test.git
 第一次會出現 SSH 警告，選 YES 即可。
 
 如圖 ( 下載成功 )，在你的下載路徑下就會多出一個資料夾
+
 ![alt tag](https://i.imgur.com/iIkTlqf.jpg)
+
+## Personal Access Tokens
+
+* [Youtube Tutorial - GitHub 教學 - Personal Access Tokens](https://youtu.be/aJRRVCB85k8)
+
+從 2021/8/13 開始, 如果你用 https 的方式你會發現
+
+![alt tag](https://i.imgur.com/6YIJSaj.png)
+
+```text
+remote: Support for password authentication was removed on August 13, 2021.
+remote: Please see https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls for information on currently recommended modes of authentication.
+fatal: Authentication failed for 'https://github.com/xxxxx.git/'
+```
+
+這時候如果我們不想加入 ssh key, 也不想透過加入共同協做的方式,
+
+可以透過這個 Personal Access Tokens (你可以把他想成臨時的權限),
+
+先到你的 github 裡的 Settings -> Developer settings,
+
+選 Personal Access Tokens, 產生你的 token
+
+![alt tag](https://i.imgur.com/zPVlOjf.png)
+
+時間這邊你可以自己定義多久後會過期,
+
+下面的部份則是這個 token 有哪些權限,
+
+![alt tag](https://i.imgur.com/NNJcYRM.png)
+
+設定完之後, 就可以複製你的 token
+
+![alt tag](https://i.imgur.com/q4htIBn.png)
+
+再回去用 https clone 的方式,
+
+原本是使用, 帳號 + password (已經不能使用了),
+
+現在改成, 帳號 + 剛剛的 token 就可以順利 clone 了.
 
 ### 如何改善(加速)大型 repo git clone 速度
 
