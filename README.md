@@ -1937,6 +1937,10 @@ git config --global alias.ck checkout
 ```
 
 ```cmd
+git config --global alias.sw switch
+```
+
+```cmd
 git config --global alias.cm commit
 ```
 
