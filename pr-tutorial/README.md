@@ -139,6 +139,18 @@ github 上面也確實有這個 PR
 
 ![alt tag](https://i.imgur.com/7atBIzY.png)
 
+也可以搭配其中的指令
+
+```cmd
+gh pr create --base dev -a @me -l bug -r twtrubiks
+```
+
+`-a` 代表指定這個 pr 給自己
+
+`-l` label 設定為 bug
+
+`-r` 設定 reviews 為 twtrubiks
+
 除了發 PR 之外, 也可以透過 github CLI 接受 PR, 指令如下
 
 文件可參考 [https://cli.github.com/manual/gh_pr_merge](https://cli.github.com/manual/gh_pr_merge)
@@ -162,6 +174,16 @@ gh pr merge -s 2
 github 上面確實已經合併這個 PR
 
 ![alt tag](https://i.imgur.com/h6akTEd.png)
+
+也可以建立 issue [gh_issue_create](https://cli.github.com/manual/gh_issue_create)
+
+```cmd
+gh issue create -a @me -l bug
+```
+
+`-a` 代表指定這個 issue 給自己
+
+`-l` label 設定為 bug
 
 還有非常多的指令, 就不一一介紹給大家了, 大家請自行研究:relaxed:
 

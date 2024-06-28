@@ -1484,7 +1484,7 @@ v2 分支中的 log 如下，我想要它的  553587b - add f.py這個 commit
 
 假設我 commit history 為 A1 -> A2 -> A3 -> A4 -> A5 -> A6
 
-我現在想要回 A4 這個 commit , 這時候我就可以使用  git revert ！！
+我現在想要回 A4 這個 commit , 這時候我就可以使用 git revert ！！
 
 先 revert A6
 
@@ -1504,9 +1504,15 @@ A1 -> A2 -> A3 -> A4 -> A5 -> A6 -> A6_revert -> A5_revert
 
 這時候，其實你的 commit 就是在 A4 這個位置 。
 
-使用 git revert 的好處，就是可以保留 commit history , 萬一你又後悔了，
+使用 git revert 的好處，就是可以保留 commit history, 萬一你又後悔了，
 
 也可以在 revert 回去。
+
+如果你想要 revert 最新的 commit, 只需要使用 HEAD
+
+```cmd
+git revert HEAD
+```
 
 ## 解決衝突
 
@@ -1817,6 +1823,81 @@ git grep "hello"
 
 其他更詳細的介紹，請參考 [https://git-scm.com/docs/git-grep](https://git-scm.com/docs/git-grep)
 
+## git clean
+
+刪除未被追蹤的檔案,
+
+`git clean -n`
+
+`-n, --dry-run` Don’t actually remove anything, just show what would be done
+
+這個指定是告訴你會刪除哪些資料, 不會真的刪除.
+
+範例如下,
+
+```cmd
+❯ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        test.py
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+❯ git clean -n
+Would remove test.py
+```
+
+如果你執行以下的指令, 就會真的刪除,
+
+`git clean -df`
+
+詳細說明可使用 `git clean --help` 觀看,
+
+範例如下,
+
+```cmd
+❯ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        test.py
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+❯ git clean -df
+Removing test.py
+
+❯ git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+```
+
+還記得前面介紹的 `git reset` 指令嗎, 基本上它可以搭配 `git clean` 一起使用,
+
+`git clean` 影響沒有被 track 的檔案
+
+`git reset` 影響有被 track 的檔案
+
+結合以上, 可以回到一個指定的 commit 乾淨的狀態,
+
+```cmd
+git reset --hard HEAD
+git clean -df
+git status
+```
+
+建議大家自己操作一下.
+
 ## git Submodule
 
 由於這個內容稍微比較多，所以我另外寫了一篇，
@@ -1934,6 +2015,10 @@ git config --global alias.br branch
 
 ```cmd
 git config --global alias.ck checkout
+```
+
+```cmd
+git config --global alias.sw switch
 ```
 
 ```cmd
@@ -2108,7 +2193,7 @@ git remote set-url origin git@blue.github.com:blue-rubiks/t11.git
 
 * [Youtube Tutorial - github PR (Pull Request) 教學](https://youtu.be/bXOdD-bKfkA) - [文章快速連結](https://github.com/twtrubiks/Git-Tutorials/tree/master/pr-tutorial#github-pr-pull-request-%E6%95%99%E5%AD%B8)
 
-* [Youtube Tutorial - github CLI PR 教學](https://youtu.be/AD8X11lq3gQ) - [文章快速連結](https://github.com/twtrubiks/Git-Tutorials/tree/master/pr-tutorial#github-cli-pr-%E6%95%99%E5%AD%B8)
+* [Youtube Tutorial - github CLI PR 教學 - gh](https://youtu.be/AD8X11lq3gQ) - [文章快速連結](https://github.com/twtrubiks/Git-Tutorials/tree/master/pr-tutorial#github-cli-pr-%E6%95%99%E5%AD%B8)
 
 [PR (Pull Request) 教學](https://github.com/twtrubiks/Git-Tutorials/tree/master/pr-tutorial)
 
