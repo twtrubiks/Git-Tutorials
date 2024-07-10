@@ -44,7 +44,7 @@ git Submodule 的官方文件可參考 [git-submodule](https://git-scm.com/docs/
 
 既然了解了使用情境，那我們就來看看它該怎麼使用:satisfied:
 
-## how to create submodule
+## how to add a submodule (to main project)
 
 手把手帶大家動手做 [Youtube Tutorial PART 1 - git Submodule tutorial - how to create submodule](https://youtu.be/IDMWLJCbCGo)，
 
@@ -237,7 +237,7 @@ the current branch of the submodule will be rebased onto the commit recorded in 
 
 這種作法更方便，也解決了 **HEAD detached** 的問題 :thumbsup:
 
-## how to clone submodule
+## how to clone a project with submodule(s)
 
 手把手帶大家動手做 [Youtube Tutorial PART 3 - git Submodule tutorial - how to clone submodule](https://youtu.be/f5_O5Iu6pJo)，
 
