@@ -912,7 +912,31 @@ git rebase master
 
 git rebase  就是將 master 的最新 commit 接回來，再補上自己分支的 commit。
 
-以上就是 git rebase  的介紹。
+以上就是 git rebase 的介紹,
+
+另一種作法, 剛剛是必須切換到 v1 分支底下, 才執行指令,
+
+如果你現在在任何分支(像是 master 分支), 你可以使用以下指令
+
+```cmd
+git rebase master v1
+```
+
+就是後面指定 v1, 執行完後它會自動幫你切換到 v1 分支上,
+
+結果都是一樣的.
+
+另外, 還有一個指令是 `git rebase --onto`
+
+```cmd
+git rebase --onto <new base-commit> <current base-commit>
+```
+
+其實概念上都是一樣的, 就是你想要 rebase 到哪個 new base-commit 上,
+
+後面放 current base-commit 而已.
+
+可以搭配 git graph 觀看, 或是看 git 的文檔 `git rebase --help`
 
 ## git rebase interactive
 
