@@ -1825,6 +1825,63 @@ git show [<options>] [<object>…​]
 
 其他更詳細的介紹，請參考 [https://git-scm.com/docs/git-diff](https://git-scm.com/docs/git-diff)
 
+## git diff-tree
+
+git-diff-tree - Compares the content and mode of blobs found via two tree objects
+
+比較兩個 blob (commit) 的差異.
+
+文件可參考 [git-diff-tree](https://git-scm.com/docs/git-diff-tree/en)
+
+直接看範例
+
+```cmd
+git diff-tree -r --no-commit-id --name-status -a --diff-filter=ACDMRT <其中一個commit id> <要比較的commit-id> > changes.txt
+```
+
+`-r` 代表 Recurse into sub-trees.
+
+`--no-commit-id` This flag suppressed the commit ID output.
+
+`--name-status` Show only the name(s) and status of each changed file.
+
+`--text` `-a` Treat all files as text.
+
+`--diff-filter=[(A|C|D|M|R|T|U|X|B)…​[*]]`
+
+Added (A), Copied (C), Deleted (D), Modified (M), Renamed (R),
+
+have their type (i.e. regular file, symlink, submodule, …​)
+
+changed (T), are Unmerged (U), are Unknown (X),
+
+or have had their pairing Broken (B).
+
+執行後打開 change.txt 會看到差異的檔案名稱.
+
+```text
+M	addons/account/i18n/account.pot
+M	addons/account/i18n/ar.po
+M	addons/account/i18n/az.po
+M	addons/account/i18n/be.po
+M	addons/account/i18n/bg.po
+M	addons/account/i18n/ca.po
+M	addons/account/i18n/cs.po
+......
+```
+
+## git archive
+
+延續上面的例子, 如果想要打包不同的 commit 之間的差異檔案 (不想要整包匯出, 因為太大了, 只想找出差異檔案),
+
+這時候可以搭配 archive 指令, 範例如下
+
+```cmd
+git archive --format=zip --output=files-diff.zip HEAD $(git diff-tree -r --no-commit-id --name-only --diff-filter=ACMRT <其中一個commit id> <要比較的commit-id>)
+```
+
+這樣匯出來的 zip, 就是這兩個 commit 之間差異的完整檔案.
+
 ## git grep
 
 以下為官方說明
