@@ -1401,7 +1401,7 @@ git stash pop # 將之前的改動從 stash 中 pop 出來
 
 看影片會更清楚，手把手帶大家動手做 [Youtube Tutorial - git-cherry-pick](https://youtu.be/x3UtKUvlDdI)
 
-git-cherry-pick 這個指令大家可能會比較陌生:confused:
+git-cherry-pick 這個指令大家可能會比較陌生 :confused:
 
 沒關係，我們先來看 [官方](https://git-scm.com/docs/git-cherry-pick) 的說明
 
@@ -1409,7 +1409,7 @@ git-cherry-pick 這個指令大家可能會比較陌生:confused:
 git-cherry-pick - Apply the changes introduced by some existing commits
 ```
 
-看完官方說明還是:question::question::question:
+看完官方說明還是 :question: :question: :question:
 
 沒關係，我來假設一個情境 ( 理解完它你就了解了 git-cherry-pick 的用途了 )，
 
@@ -1429,7 +1429,7 @@ git-cherry-pick - Apply the changes introduced by some existing commits
 
 不需要全部，換句話說，就是撿其他分支中的 commit 過來使用。
 
-了解了適合的使用情境，接下來我們就來實戰:smirk:
+了解了適合的使用情境，接下來我們就來實戰 :smirk:
 
 首先，我想要 v1 分支中的 14dee93 - add d.py 這個 commit，
 
@@ -1445,6 +1445,14 @@ git cherry-pick 14dee93
 git cherry-pick 14dee93 xxxxxx xxxxxx xxxxxx xxxxx
 ```
 
+如果你想一次撿一個區間的 commits, 可以使用以下的指令
+
+```cmd
+git cherry-pick A^..B
+```
+
+(A 和 B 代表你的 commits id)
+
 如果沒有衝突，就會看到如下圖
 
 ![alt tag](https://i.imgur.com/YITXxMk.png)
@@ -1457,9 +1465,9 @@ git cherry-pick 14dee93 xxxxxx xxxxxx xxxxxx xxxxx
 
 使用了，但現在它的 commit id 卻是 ab70429，這個是正常的，因為它需要
 
-重新新計算:smile:
+重新新計算 :smile:
 
-其實，你會發現 git-cherry-pick 沒有想像中的困難:satisfied:
+其實，你會發現 git-cherry-pick 沒有想像中的困難 :satisfied:
 
 在 cherry-pick 時，難免會遇到衝突，這邊我就再多做一個衝突的範例，
 
@@ -1471,13 +1479,13 @@ v1 分支中的 log 如下，我想要它的 3a2f29a - add c.py and print world 
 
 ![alt tag](https://i.imgur.com/RFibHS6.png)
 
-v2 分支中的 log 如下，我想要它的  553587b - add f.py這個 commit
+v2 分支中的 log 如下，我想要它的  553587b - add f.py 這個 commit
 
 ![alt tag](https://i.imgur.com/I6L2Fwq.png)
 
 接下來我們就切回 master，然後 cherry-pick 這兩個 commit，
 
-這時候你會發現，它衝突了:fearful:
+這時候你會發現，它衝突了 :fearful:
 
 ![alt tag](https://i.imgur.com/fAtQET0.png)
 
@@ -1499,7 +1507,7 @@ v2 分支中的 log 如下，我想要它的  553587b - add f.py這個 commit
 
 ![alt tag](https://i.imgur.com/lEP648c.png)
 
-我們成功將我們要的 commit merge 到我們的 master 分支上了:kissing_smiling_eyes:
+我們成功將我們要的 commit merge 到我們的 master 分支上了 :kissing_smiling_eyes:
 
 想了解更多的使用方法，可參考官方文件
 [https://git-scm.com/docs/git-cherry-pick](https://git-scm.com/docs/git-cherry-pick)。
