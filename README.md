@@ -1,8 +1,8 @@
 # Git-Tutorials 基本使用教學  :memo:
 
-因為小弟覺得這東西蠻有趣的，所以就簡單寫個教學文，順便記錄一下:memo:，希望能幫助想學的人:smile:
+因為小弟覺得這東西蠻有趣的，所以就簡單寫個教學文，順便記錄一下 :memo:，希望能幫助想學的人 :smile:
 
-如果教學有誤再請糾正:sweat_smile:
+如果教學有誤再請糾正 :sweat_smile:
 
 基本使用指令以及安裝可參考小弟之前拍的影片
 
@@ -361,6 +361,16 @@ git log --pretty=oneline
 按 **小寫q** 可退出
 
 ![alt tag](https://i.imgur.com/jz2cwUA.jpg)
+
+如果你想要只看某個檔案或某個資料夾的變動, 可以這樣使用, 範例如下
+
+```cmd
+git log -- folder
+```
+
+```cmd
+git log -- folder/demo.py
+```
 
 另外底下也是一個看 log 的方式（ 很酷 :satisfied:），有 GUI 的感覺（ 來源為文章最後的連結 ）
 
@@ -1153,7 +1163,7 @@ git rebase -i f0a761d
 
 ![alt tag](https://i.imgur.com/rgWkvVp.png)
 
-( 如果你要合併多個 commit，就多個都改成 s 或 squash, 注意, 有順序性:exclamation::exclamation: )
+( 如果你要合併多個 commit，就多個都改成 s 或 squash, 注意, 有順序性 :exclamation: :exclamation: )
 
 將著按下 ENTER，會看到下圖
 
@@ -1173,7 +1183,7 @@ git rebase -i f0a761d
 
 ![alt tag](https://i.imgur.com/r53KIev.png)
 
-c.py 以及 c1.py 都存在，代表我們成功了:satisfied:
+c.py 以及 c1.py 都存在，代表我們成功了 :satisfied:
 
 ![alt tag](https://i.imgur.com/WhkLDGa.png)
 
@@ -1350,13 +1360,13 @@ git pull --rebase = git fetch + git rebase
 
 [Youtube Tutorial - git pull vs git pull --rebase](https://youtu.be/8h0K-2OaeSk)
 
-使用 `git pull` 後的結果，code review 的人一定翻桌 ( 如下圖 ):triumph:
+使用 `git pull` 後的結果，code review 的人一定翻桌 ( 如下圖 ) :triumph:
 
 這邊我有順便模擬衝突的時候，你會發現如果使用 `git pull` 會多一個 commit (也就是下方的 "fix conflict")。
 
 ![alt tag](https://i.imgur.com/CNgKR3y.png)
 
-使用 `git pull --rebase` 後的結果，code review 的人表示溫馨  ( 如下圖 ):innocent:
+使用 `git pull --rebase` 後的結果，code review 的人表示溫馨  ( 如下圖 ) :innocent:
 
 這邊我有順便模擬衝突的時候，你會發現如果使用 `git pull --rebase` 並不會像剛剛一樣多了一個 commit，
 
@@ -1387,7 +1397,7 @@ git stash pop # 將之前的改動從 stash 中 pop 出來
 # 如果有衝突再去解決衝突
 ```
 
-但如果每次都要執行這麼多指令其實會有點煩:sweat:
+但如果每次都要執行這麼多指令其實會有點煩 :sweat:
 
 但可以透過一個參數來解決, 也就是
 
@@ -1395,7 +1405,7 @@ git stash pop # 將之前的改動從 stash 中 pop 出來
 
 以上這段指令基本上就是幫你執行了剛剛上面那一串的東西,
 
-如果有衝突, 就再修正衝突即可:smile:
+如果有衝突, 就再修正衝突即可 :smile:
 
 ## git-cherry-pick
 
@@ -2063,9 +2073,9 @@ git update-index --no-skip-worktree <file>
 
 這邊補充一個情境，假設今天 file 這個檔案已經被 commit 到 git 中了，
 
-但是我想把他加入 .gitignore，這樣該怎麼辦:question:
+但是我想把他加入 .gitignore，這樣該怎麼辦 :question:
 
-如果你在 .gitignore 中加入 file，你會發現還是沒有被 ignore:confused:
+如果你在 .gitignore 中加入 file，你會發現還是沒有被 ignore :confused:
 
 ![alt tag](https://i.imgur.com/o922paa.png)
 
@@ -2079,7 +2089,7 @@ git rm --cached <file>
 
 ![alt tag](https://i.imgur.com/RJZ08OQ.png)
 
-這時候可以再嘗試更新 file 的內容，你會發現它成功被 ignore 了:smile:
+這時候可以再嘗試更新 file 的內容，你會發現它成功被 ignore 了 :smile:
 
 ### git alias
 
