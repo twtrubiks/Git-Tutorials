@@ -114,7 +114,7 @@ Master 以及 Develop 這兩個分支非常重要，理論上要保護好這兩�
 
 ## Donation
 
-文章都是我自己研究內化後原創，如果有幫助到您，也想鼓勵我的話，歡迎請我喝一杯咖啡:laughing:
+文章都是我自己研究內化後原創，如果有幫助到您，也想鼓勵我的話，歡迎請我喝一杯咖啡 :laughing:
 
 ![alt tag](https://i.imgur.com/LRct9xa.png)
 

@@ -10,7 +10,7 @@
 
 -> 再對對應的原專案發 PR(注意對方的以及自己的 branch ) -> 等作者測試覺得沒問題後合併進主分支
 
--> 恭喜你對社群盡了一分心力:smile:
+-> 恭喜你對社群盡了一分心力 :smile:
 
 * 情境二
 
@@ -73,7 +73,7 @@
 
 的概念, 你的分支上有 3個 commit, 使用這方法合併後就是會多出 3個 commit.
 
-至於要使用哪一種, 就看各公司的需求了:smile:
+至於要使用哪一種, 就看各公司的需求了 :smile:
 
 決定好 Merge pull request 的方式後就可以直接按下了, 你會發現他顯示 Merged,
 
@@ -85,13 +85,13 @@
 
 ## github CLI PR 教學
 
-如果你有看前面的文章, 你就會覺得很麻煩:expressionless:
+如果你有看前面的文章, 你就會覺得很麻煩 :expressionless:
 
 因為每次都要手動去網頁上點, 工程師肯定要使用 CLI,
 
-今天我就來教大家這個 [github CLI](https://cli.github.com/):laughing:
+今天我就來教大家這個 [github CLI](https://cli.github.com/) :laughing:
 
-連 github 的網頁都不需要開:satisfied:
+連 github 的網頁都不需要開 :satisfied:
 
 首先是安裝方法
 
@@ -107,11 +107,11 @@ gh auth login
 
 順便一提, github CLI 的文件寫的很好, 大家可以參考他的文件玩玩看 [GitHub CLI document](https://cli.github.com/manual/).
 
-接下來, 就要來體驗 github CLI 的強大了:satisfied:
+接下來, 就要來體驗 github CLI 的強大了 :satisfied:
 
 現在有一個 `feature_cli` 分支, 當 push 分支之後,
 
-(溫馨提醒:exclamation::exclamation: 要發一個 PR, 這個 branch 一定要 push 到 remote)
+(溫馨提醒 :exclamation: :exclamation: 要發一個 PR, 這個 branch 一定要 push 到 remote)
 
 (也就是說, 你沒辦法去發送一個 PR 只存在 local 端但卻不存在 remote 端)
 
@@ -185,9 +185,9 @@ gh issue create -a @me -l bug
 
 `-l` label 設定為 bug
 
-還有非常多的指令, 就不一一介紹給大家了, 大家請自行研究:relaxed:
+還有非常多的指令, 就不一一介紹給大家了, 大家請自行研究 :relaxed:
 
-基本上, github CLI 功能是非常強大的:smile:
+基本上, github CLI 功能是非常強大的 :smile:
 
 ### 其他
 

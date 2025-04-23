@@ -1,6 +1,6 @@
 # Multiple SSH Keys settings for different github account
 
-如果你對這個真的很陌生，建議看影片:smile:
+如果你對這個真的很陌生，建議看影片 :smile:
 
 * [Youtube Tutorial - Multiple SSH Keys settings for different github account](https://youtu.be/gDxG-4tF7B8)
 
@@ -12,7 +12,7 @@
 
 了 :kissing_smiling_eyes:
 
-相信我，你不會希望用公司的帳號推 commit 到自己的 side project 上:sweat_smile:
+相信我，你不會希望用公司的帳號推 commit 到自己的 side project 上 :sweat_smile:
 
 ## 教學
 
@@ -144,7 +144,7 @@ git config user.email "blue555236sa56@gmail.com"
 
 ## Donation
 
-文章都是我自己研究內化後原創，如果有幫助到您，也想鼓勵我的話，歡迎請我喝一杯咖啡:laughing:
+文章都是我自己研究內化後原創，如果有幫助到您，也想鼓勵我的話，歡迎請我喝一杯咖啡 :laughing:
 
 ![alt tag](https://i.imgur.com/LRct9xa.png)
 

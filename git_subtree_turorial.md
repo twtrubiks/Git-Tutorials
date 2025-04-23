@@ -2,9 +2,9 @@
 
 手把手帶大家動手做 [Youtube Tutorial PART 1 - git subtree tutorial - how to create subtree](https://youtu.be/kEvgK2gH_vg)
 
-還記得之前和大家介紹過 [git Submodule tutorial 📝](https://github.com/twtrubiks/Git-Tutorials/blob/master/git_submodule_turorial.md) 這個指令嗎:question:
+還記得之前和大家介紹過 [git Submodule tutorial 📝](https://github.com/twtrubiks/Git-Tutorials/blob/master/git_submodule_turorial.md) 這個指令嗎 :question:
 
-忘記得趕快去複習一下吧:smirk:
+忘記得趕快去複習一下吧 :smirk:
 
 今天我要再來介紹一個類似功能的指令，名稱叫做 **git-subtree**，如果你用 git-subtree 和 git submodule
 
@@ -112,7 +112,7 @@ git remote add a_project_subtree git@github.com:blue-rubiks/a_project_subtree.gi
 git subtree add -P a_project_subtree --squash a_project_subtree master
 ```
 
-其實就是將 remote url 變成 a_project_subtree 而已:thumbsup:
+其實就是將 remote url 變成 a_project_subtree 而已 :thumbsup:
 
 
 ### how to push git subtree
@@ -131,7 +131,7 @@ a_project_subtree 就像是在 main_project_subtree 裡面的一個目錄一樣�
 
 資料被修改，但是在 a_project_subtree 中會看不到修改，因為還沒有 push 到 a_project_subtree，
 
-那該如何 push 到 a_project_subtree 上呢:question:
+那該如何 push 到 a_project_subtree 上呢 :question:
 
 可以使用以下指令
 
@@ -155,7 +155,7 @@ update a_project_subtree，
 
 注意 `4/4 (2)` 這個，他每次都會重新 ( 重源頭 ) 計算，所以如果你一直增加 a_project_subtree 的 commit，
 
-每次 push 到 a_project_subtree 的速度會越來越慢，該如何解決:question:
+每次 push 到 a_project_subtree 的速度會越來越慢，該如何解決 :question:
 
 後面會介紹 :smirk:
 
@@ -165,7 +165,7 @@ update a_project_subtree，
 
 ![alt tag](https://i.imgur.com/2T9Bn13.png)
 
-到這邊我們休息一下:relaxed:
+到這邊我們休息一下 :relaxed:
 
 在簡介的時候我們說過 **git submodule 是 link 的概念，而 git subtree 則是 copy 的概念**，所以如果你
 
@@ -207,7 +207,7 @@ split 這個指令比較特別，在這邊我提一下，在前面的 [how to pu
 
 這個是他每次都會重新計算，所以如果你一直增加 commit，push 速度會越來越慢的這個問題，
 
-而 split 可以解決這個問題，他會從一個最新的點開始計算，不用每次都重頭計算:smile:
+而 split 可以解決這個問題，他會從一個最新的點開始計算，不用每次都重頭計算 :smile:
 
 先來看一下 [文件](https://github.com/apenwarr/git-subtree/blob/master/git-subtree.txt)，`--rejoin` option
 
@@ -231,18 +231,18 @@ git subtree split --rejoin --prefix=a_project_subtree --ignore-joins
 
 這樣就完成 split 了，當我們如果有改動 a_project_subtree，`4/4 (2)` 這個就會重最新的點開始計算，
 
-不會每次都重頭計算，導致 push 速度越來越慢:satisfied:
+不會每次都重頭計算，導致 push 速度越來越慢 :satisfied:
 
 
 ## 結論
 
-介紹完了 subtree ，一定要來說說我對 subtree 以及 submodule 的看法:laughing:
+介紹完了 subtree ，一定要來說說我對 subtree 以及 submodule 的看法 :laughing:
 
 在 submodule 中執行 init 以及如果要移除掉 submodule 時，步驟都比較繁瑣，
 
 相對 subtree 來說，subtree 簡單很多，因為對 developer 來說，他就像一個
 
-目錄一樣，就算今天 subtree 的 remote repo 被刪除也不擔心:smiley:
+目錄一樣，就算今天 subtree 的 remote repo 被刪除也不擔心 :smiley:
 
 但是我相信大家一定也發現了，使用 subtree 的時候，我們如果要切換 branch
 
@@ -254,18 +254,18 @@ git subtree split --rejoin --prefix=a_project_subtree --ignore-joins
 
 所以如果有切分支 ( 你依賴的 repo )，建議還是使用 submodule 會比較方便，
 
-另外一個點是，我覺得使用 subtree 時，會讓 log 變得有點亂:weary:，不像
+另外一個點是，我覺得使用 subtree 時，會讓 log 變得有點亂 :weary:，不像
 
-submodule 那樣清楚很多:smile:
+submodule 那樣清楚很多 :smile:
 
 而且 subtree 的侵略性比較強 ( commit id 都會改變)，大家在使用時，要多了解
 
-一下，雖然 subtree 指令看似只有幾個，但是整體使用下來，還是很多細節要注意:sweat_smile:
+一下，雖然 subtree 指令看似只有幾個，但是整體使用下來，還是很多細節要注意 :sweat_smile:
 
 
 ## Donation
 
-文章都是我自己研究內化後原創，如果有幫助到您，也想鼓勵我的話，歡迎請我喝一杯咖啡:laughing:
+文章都是我自己研究內化後原創，如果有幫助到您，也想鼓勵我的話，歡迎請我喝一杯咖啡 :laughing:
 
 ![alt tag](https://i.imgur.com/LRct9xa.png)
 

@@ -28,9 +28,9 @@ git Submodule 的官方文件可參考 [git-submodule](https://git-scm.com/docs/
 
 我們依賴的 repo 都做檢查並且更新，如果是這樣的話，整個流程會更安全，
 
-也更不會出錯:relaxed:
+也更不會出錯 :relaxed:
 
-答案是有的:thumbsup:
+答案是有的 :thumbsup:
 
 那就是我們接下來要介紹的 git Submodule，如果你也有上述的使用情境，
 
@@ -42,7 +42,7 @@ git Submodule 的官方文件可參考 [git-submodule](https://git-scm.com/docs/
 
 把它想成是 Submodule，這樣是不是更清楚了呢 :grin:
 
-既然了解了使用情境，那我們就來看看它該怎麼使用:satisfied:
+既然了解了使用情境，那我們就來看看它該怎麼使用 :satisfied:
 
 ## how to create submodule
 
@@ -101,9 +101,9 @@ git submodule update
 
 但我自己測試似乎是不需要的 ( 雖然執行了也不會有什麼影響 )，
 
-所以就先記錄就好，不要理它:smirk:
+所以就先記錄就好，不要理它 :smirk:
 
-接著就一般 git 的操作後，push 就完成了:smiley:
+接著就一般 git 的操作後，push 就完成了 :smiley:
 
 ![alt tag](https://i.imgur.com/8c5ygMn.png)
 
@@ -133,7 +133,7 @@ push 之後，可以到 github 網頁上看，
 
 手把手帶大家動手做 [Youtube Tutorial PART 2 - git Submodule tutorial - how to update submodule](https://youtu.be/ogZoZOVyAYI)，
 
-假設 a_project repo 也是我們自己維護的，當我們對它更新時，會發生什麼事情:question:
+假設 a_project repo 也是我們自己維護的，當我們對它更新時，會發生什麼事情 :question:
 
 如果你進入 a_project repo 中，你會發現它其實就是一個我們常見的 git repo，
 
@@ -161,7 +161,7 @@ push 之後，可以到 github 網頁上看，
 
 剛剛我們是自己改動 a_project repo，現在另一種情境，是別人改動 a_project repo，
 
-那這時候，我們如何更新 Submodule 呢:question:
+那這時候，我們如何更新 Submodule 呢 :question:
 
 剛剛說過如果我們進去 a_project repo 中，它就像一個正常的 git 一樣，
 
@@ -175,7 +175,7 @@ push 之後，可以到 github 網頁上看，
 
 但是，因為現在是只有一個 Submodule ，如果你有 N 個 Submodule 呢 ?
 
-這樣我相信會非常麻煩，因為要一個一個更新:sob:
+這樣我相信會非常麻煩，因為要一個一個更新 :sob:
 
 所以，比較好的方法應該是使用以下指令一次更新，
 
@@ -189,7 +189,7 @@ git submodule update --remote
 
 ![alt tag](https://i.imgur.com/m2ICwPY.png)
 
-可是這時候你如果切到 a_project repo 你會發現它竟然 **HEAD detached** 了:confused:
+可是這時候你如果切到 a_project repo 你會發現它竟然 **HEAD detached** 了 :confused:
 
 ![alt tag](https://i.imgur.com/JHMn26S.png)
 
@@ -205,7 +205,7 @@ git submodule update --remote
 
 簡單說就是要建立一個分支 ，然後再回到 master merge 該 ( `066d0db` ) 分支。
 
-但這樣步驟真的有點多:sweat_smile:
+但這樣步驟真的有點多 :sweat_smile:
 
 所以更簡單的方法，可以直接使用以下指令，
 
@@ -253,7 +253,7 @@ git clone git@github.com:blue-rubiks/main_project.git
 
 的確有將 a_project repo 一起 clone 下來，但不要高興的太早，
 
-因為，你如果進去看這些資料夾查看，你會發現它的內容都是空的:sob:
+因為，你如果進去看這些資料夾查看，你會發現它的內容都是空的 :sob:
 
 ![alt tag](https://i.imgur.com/xZuY1tm.png)
 
@@ -287,7 +287,7 @@ If --recursive is specified, this command will recurse into the registered submo
 
 ![alt tag](https://i.imgur.com/SJFZW0U.png)
 
-成功將 submodule 的內容 clone 下來了:smile:
+成功將 submodule 的內容 clone 下來了 :smile:
 
 ![alt tag](https://i.imgur.com/G9BXL77.png)
 
@@ -305,7 +305,7 @@ git submodule update --init --recursive
 git clone --recurse-submodules git@github.com:blue-rubiks/main_project.git
 ```
 
-一次就完成全部的部分，包含 init 以及更新 submodule:satisfied:
+一次就完成全部的部分，包含 init 以及更新 submodule :satisfied:
 
 詳細說明可參考 [git-clone---recurse-submodulesltpathspec](https://git-scm.com/docs/git-clone#git-clone---recurse-submodulesltpathspec)，
 
@@ -361,7 +361,7 @@ rm -rf .git/modules/a_project
 rm -rf a_project
 ```
 
-步驟雖然多了點，但其實不難:smirk:
+步驟雖然多了點，但其實不難 :smirk:
 
 ### Synchronizes  Submodule
 
@@ -377,7 +377,7 @@ Synchronizes submodules' remote URL configuration setting to the value specified
 
 ## Donation
 
-文章都是我自己研究內化後原創，如果有幫助到您，也想鼓勵我的話，歡迎請我喝一杯咖啡:laughing:
+文章都是我自己研究內化後原創，如果有幫助到您，也想鼓勵我的話，歡迎請我喝一杯咖啡 :laughing:
 
 ![alt tag](https://i.imgur.com/LRct9xa.png)
 
