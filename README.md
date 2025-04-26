@@ -362,14 +362,110 @@ git log --pretty=oneline
 
 ![alt tag](https://i.imgur.com/jz2cwUA.jpg)
 
-如果你想要只看某個檔案或某個資料夾的變動, 可以這樣使用, 範例如下
+如果你想要看某個檔案或某個資料夾的變動, 可以這樣使用, 範例如下
+
+* [Youtube Tutorial - Git Log：資料夾移動後 Log 消失？用 --follow 找回檔案歷史！(等待新增)](xx)
 
 ```cmd
 git log -- folder
 ```
 
+如果追蹤個別檔案, 可以加上 `--follow`
+
 ```cmd
-git log -- folder/demo.py
+git log --follow -- folder/demo.py
+```
+
+舉個例子, 我有一個資料夾結構如下
+
+```cmd
+❯ tree
+.
+├── production
+│   ├── a
+│   │   ├── a1.txt
+│   │   ├── a2.txt
+│   │   └── a3.txt
+│   └── b
+│       └── b1.txt
+└── test
+```
+
+`production` 下的歷史紀錄
+
+```cmd
+❯ git log -- production/a
+
+* b9a481b - a3.txt
+* 02fce19 - a2.txt
+* 1e4aa1b - create
+```
+
+假設今天把 `production` 底下的 `a` 資料夾移動到 `test` 資料夾底下,
+
+資料夾結構變成如下, 然後 commit
+
+```cmd
+❯ tree
+.
+├── production
+│   └── b
+│       └── b1.txt
+└── test
+    └── a
+        ├── a1.txt
+        ├── a2.txt
+        └── a3.txt
+```
+
+目前整個 repo 的 git log 如下
+
+```cmd
+❯ git log
+
+* 5707ce2 - move
+* b9a481b - a3.txt
+* 02fce19 - a2.txt
+* 1e4aa1b - create
+* 1b7fb87 - Initial commit
+```
+
+然後再看 `a` 資料夾, 如下
+
+```cmd
+❯ git log -- test/a
+
+* 5707ce2 - move
+```
+
+你會發現前面的 `a2.txt` 以及 `a3.txt` 的 git 的追蹤紀錄消失了 !!!
+
+方法一, 追蹤原資料夾,
+
+雖然這個檔案已經不存在了, 但是對 git 來說紀錄還是在的
+
+```cmd
+# 這邊你會發現資料夾已經不存在的, 因為已經移動了
+❯ ls production/a
+
+ls: cannot access 'production/a': No such file or directory
+
+# 但是還是可以追蹤到歷史紀錄
+❯ git log -- production/a
+
+* 5707ce2 - move
+* b9a481b - a3.txt
+* 02fce19 - a2.txt
+* 1e4aa1b - create
+```
+
+方法二, 加上 `--follow`, 這個可以追蹤個別檔案 (移動後的資料夾不要用它, 因為會看不到過去紀錄)
+
+```cmd
+❯ git log --follow -- test/a/a1.txt
+
+* 5707ce2 - move
+* 1e4aa1b - create
 ```
 
 另外底下也是一個看 log 的方式（ 很酷 :satisfied:），有 GUI 的感覺（ 來源為文章最後的連結 ）
