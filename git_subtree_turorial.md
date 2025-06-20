@@ -1,3 +1,5 @@
+[English Version](git_subtree_turorial_en.md)
+
 # git subtree tutorial :memo:
 
 手把手帶大家動手做 [Youtube Tutorial PART 1 - git subtree tutorial - how to create subtree](https://youtu.be/kEvgK2gH_vg)
@@ -15,7 +17,6 @@
 ## 簡介
 
 我先用兩句話來描述 git submodule 和 git subtree 的差異，
-
 
 ***git submodule 是 link 的概念，而 git subtree 則是 copy的概念***
 
@@ -50,7 +51,6 @@ git clone git@github.com:blue-rubiks/main_project_subtree.git
 main_project_subtree repo log 如下，
 
 ![alt tag](https://i.imgur.com/I6i93rr.png)
-
 
 接下來，要加入 subtree ( 也就是 a_project_subtree )，使用以下指令
 
@@ -233,7 +233,6 @@ git subtree split --rejoin --prefix=a_project_subtree --ignore-joins
 
 不會每次都重頭計算，導致 push 速度越來越慢 :satisfied:
 
-
 ## 結論
 
 介紹完了 subtree ，一定要來說說我對 subtree 以及 submodule 的看法 :laughing:
@@ -261,7 +260,6 @@ submodule 那樣清楚很多 :smile:
 而且 subtree 的侵略性比較強 ( commit id 都會改變)，大家在使用時，要多了解
 
 一下，雖然 subtree 指令看似只有幾個，但是整體使用下來，還是很多細節要注意 :sweat_smile:
-
 
 ## Donation
 

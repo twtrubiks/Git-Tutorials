@@ -1,3 +1,5 @@
+[English Version](README_en.md)
+
 # PR (Pull Request) 教學
 
 先來說說甚麼時候可以使用 PR (Pull Request),

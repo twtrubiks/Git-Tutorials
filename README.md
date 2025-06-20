@@ -1,3 +1,5 @@
+[English Version](README_en.md)
+
 # Git-Tutorials 基本使用教學  :memo:
 
 因為小弟覺得這東西蠻有趣的，所以就簡單寫個教學文，順便記錄一下 :memo:，希望能幫助想學的人 :smile:
