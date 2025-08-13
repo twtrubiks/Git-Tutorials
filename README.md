@@ -366,7 +366,7 @@ git log --pretty=oneline
 
 如果你想要看某個檔案或某個資料夾的變動, 可以這樣使用, 範例如下
 
-* [Youtube Tutorial - Git Log：資料夾移動後 Log 消失？用 --follow 找回檔案歷史！(等待新增)](xx)
+* [Youtube Tutorial - Git Log：資料夾移動後 Log 消失？用 --follow 找回檔案歷史！](https://youtu.be/AGO3PyMTqds)
 
 ```cmd
 git log -- folder
@@ -1726,14 +1726,28 @@ git stash
 假如你想要更清楚自己這次的 stash 原因是什麼，或是這是正在開發什麼功能
 可以使用以下指令
 
-範例
+範例, 預設只會加入已經追蹤的, 也就是要先執行 `git add .`
 
 ```cmd
+# 舊語法
 git stash save "我是註解"
 ```
 
 ```cmd
+# 新語法
+git stash -m "我是註解"
+```
+
+如果你想把沒追蹤的也加入進去, 使用以下語法, 這樣就不用執行 `git add .` 了
+
+```cmd
+# 舊語法
 git stash save -u "feature"
+```
+
+```cmd
+# 新語法
+git stash -u -m "feature"
 ```
 
 參數說明
@@ -1800,6 +1814,130 @@ git stash clear
 git stash drop 0
 git stash drop stash@{0}
 ```
+
+## git worktree 指令
+
+* [Youtube Tutorial - 別再用 git stash 了！受 Claude 啟發的 Git Worktree，實現真正的平行開發](https://youtu.be/9FOHZo7Gc28)
+
+(會介紹這個的原因是因為看了一下 claude code 的東西, 發現裡面有使用到這個指令)
+
+這個的概念是類似複製(但本質不是複製)一個全新乾淨的專案出來, 優點是可以不影響原本的資料夾,
+
+如果你的分支是要做版本升級, 蠻適合使用 worktree 來處理的.
+
+簡單說是 空間隔離 的概念.
+
+假如現在你有一個專案名稱是 repo, 路徑是
+
+```cmd
+cd /home/twtrubiks/demo/repo
+```
+
+目前的 main 分支狀況
+
+```cmd
+git log
+* 62f3d61 - (HEAD -> main) first commit
+```
+
+然後現在開發了一個功能, 建立了一個 feature_1 分支
+
+```cmd
+git switch -c feature_1
+```
+
+開發到一半, 目前 feature_1 的狀況如下, 還沒開發完 step_2 寫到一半也不想要 commit
+
+```cmd
+❯ git status
+On branch feature_1
+Untracked files:
+feature1.py
+```
+
+```cmd
+git log
+* d716943 - (HEAD -> feature_1) step_1 (1 second ago)
+* 62f3d61 - (main) first commit (5 minutes ago)
+```
+
+突然有一個需求需要 hotfix,
+
+這時候如果不使用 `git stash`, 改使用 `git worktree` 的方式,
+
+首先, 從 main 分支開一個 worktree 出來, 執行底下的 code
+
+```cmd
+git worktree add ../repo-hotfix main
+```
+
+在上層目錄你會發現, 多了一個 repo-hotfix 資料夾, 它裡面是 main 的分支,
+
+如果你到這個資料夾底下觀看, 你會發現 `.git` (這是一個**檔案**，而不是資料夾),
+
+裡面只有一行文字，如下
+
+```cmd
+cat .git
+gitdir: /home/twtrubiks/demo/repo/.git/worktrees/repo-hotfix
+```
+
+這時候你就可以進去 `/home/twtrubiks/demo/repo-hotfix`
+
+然後依照團隊的流程再開一個分支,
+
+```cmd
+git switch -c hotfix-1
+```
+
+接著可以使用 `git worktree list` 觀看
+
+```cmd
+❯ git worktree list
+/home/twtrubiks/demo/repo         [feature_1]
+/home/twtrubiks/demo/repo-hotfix  [hotfix-1]
+```
+
+這裡面是完全獨立而且和 repo 資料夾隔離的,
+
+(這裡可以設定你需要在這個分支的版本, 例如這個分支可能是使用 python 3.13)
+
+然後你在這裡面把你的功能開發完畢, 然後 push 上去跑 PR流程這樣, 到這邊結束.
+
+你可以回到 repo 專案底下繼續開發, 剛剛的工作狀態包含未追蹤的檔案都原封不動的在那邊.
+
+如果確定不需要這個 worktree, 使用底下的指令刪除即可.
+
+```cmd
+git worktree remove ../repo-hotfix
+```
+
+提醒, 如果你沒有清除 worktree 分支, 你是無法切換過去對應的分支, 像這邊的例子, 你會無法切換過去 main 分支.
+
+如果你擔心不小心刪掉你的 worktree, 可以使用 lock
+
+```cmd
+git worktree lock ../repo-hotfix
+```
+
+這樣當你真的不小心執行要刪掉你的 worktree, 會警告你要加上 `-f -f` 才能刪除
+
+```cmd
+git worktree remove -f -f ../repo-hotfix
+```
+
+我知道最後你一定想問, 這樣和我複製一個資料夾出來, 然後在資料夾上切換分支有什麼差別
+
+詳細比較可參考下表
+
+| 特性 | `git worktree` | `複製資料夾` (`cp -r`) |
+| :--- | :--- | :--- |
+| **核心機制** | **連結 (Linked)** | **複製 (Copied)** |
+| **`.git` 資料庫** | **1 個 (共享)** | **2 個 (獨立且互不相干)** |
+| **Commit 同步** | **即時自動同步**<br>在任何一個 worktree 中 commit，另一個立刻就能看到。 | **完全不同步**<br>必須手動設定, 透過 `fetch`/`pull` 同步。 |
+| **硬碟空間使用** | **高效率**<br>只增加工作檔案的空間，龐大的 `.git/objects` 歷史紀錄不需複製。 | **極度浪費**<br>完整複製了整個 `.git` 資料庫，專案歷史越長，浪費空間越多。 |
+| **操作流程** | **簡單優雅**<br>`git worktree add/remove` | **複雜且違反直覺**<br>需要設定本地額外設定以及推到remote |
+| **風險** | **低**<br>永遠只有一個事實來源 (Single Source of Truth)，不會搞混歷史。 | **高**<br>容易產生混淆，甚至導致兩個獨立的歷史紀錄**分岔 (diverge)**。 |
 
 ## git tag
 
@@ -2024,9 +2162,11 @@ git grep "hello"
 
 刪除未被追蹤的檔案,
 
-`git clean -n`
+`git clean -n -d`
 
-`-n, --dry-run` Don’t actually remove anything, just show what would be done
+`-n, --dry-run` 模擬執行 Don’t actually remove anything, just show what would be done
+
+`-d` 代表 recurse, 資料夾也會刪除.
 
 這個指定是告訴你會刪除哪些資料, 不會真的刪除.
 
@@ -2044,7 +2184,7 @@ Untracked files:
 
 nothing added to commit but untracked files present (use "git add" to track)
 
-❯ git clean -n
+❯ git clean -n -d
 Would remove test.py
 ```
 
@@ -2094,6 +2234,36 @@ git status
 ```
 
 建議大家自己操作一下.
+
+## git gc
+
+git gc 是 Git 的垃圾收集器（Garbage Collector）
+
+它會清理不再需要的物件、壓縮檔案、優化儲存庫效能
+
+如果你希望將 `.git` 資料夾變小，可以考慮使用以下的指令,
+
+```cmd
+git gc --aggressive --prune=now
+```
+
+`--aggressive` 使用更徹底但耗時的優化策略
+
+`--prune=now` 立即刪除所有不可達到的物件
+
+執行效果,
+
+1. 空間優化：大幅減少 `.git` 目錄的大小
+
+2. 效能提升：改善 Git 操作的速度
+
+3. 徹底清理：移除所有無用的物件和引用
+
+使用時機
+
+•  儲存庫變得很大時
+
+•  進行了大量的分支合併、刪除操作後
 
 ## git Submodule
 
